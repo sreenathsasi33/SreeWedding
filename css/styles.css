@@ -1,29 +1,37 @@
 /* ==========================================================================
    TRADITIONAL KERALA HINDU WEDDING RECEPTION THEME
+   Palette: Soft Ivory (#FAF7F2), Temple Gold (#D4AF37), Deep Maroon (#7A1F1F),
+            Sandalwood & Banana-Leaf Accents
    ========================================================================== */
 
 :root {
-  --bg-ivory: #fffdf9;
-  --bg-sandalwood: #f7efe0;
-  --bg-card: #ffffff;
-  --teak-dark: #2c150c;
-  --teak-mid: #4a2515;
-  --maroon-deep: #5e1118;
-  --maroon-primary: #7a1821;
-  --gold-bright: #e5b95c;
-  --gold-antique: #b8892d;
-  --text-dark: #2a1810;
-  --text-muted: #664d42;
-  --border-gold: rgba(184, 137, 45, 0.35);
+  --bg-ivory: #FAF7F2;
+  --bg-sandalwood: #F3EAD8;
+  --bg-palm-leaf: #EFE2C4;
+  --bg-card: rgba(255, 253, 249, 0.94);
 
+  --maroon-primary: #7A1F1F;
+  --maroon-deep: #521212;
+  --temple-gold: #D4AF37;
+  --temple-gold-dark: #9E7B1E;
+  --temple-gold-light: #F3D97E;
+  --banana-leaf: #2D5A36;
+  --teak-dark: #2B160C;
+
+  --text-dark: #2C1810;
+  --text-muted: #61483D;
+  --border-gold: rgba(212, 175, 55, 0.45);
+
+  /* Sanskrit-inspired Display + Serif + Malayalam Typography */
+  --font-sanskrit: 'Yatra One', 'Cinzel Decorative', Georgia, serif;
   --font-display: 'Cinzel Decorative', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-ml-serif: 'Noto Serif Malayalam', serif;
   --font-ml-sans: 'Manjari', sans-serif;
 
-  --shadow-soft: 0 14px 40px rgba(44, 21, 12, 0.08);
-  --shadow-gold: 0 12px 32px rgba(184, 137, 45, 0.18);
+  --shadow-soft: 0 14px 36px rgba(44, 24, 16, 0.08);
+  --shadow-gold: 0 12px 32px rgba(212, 175, 55, 0.24);
   --radius-lg: 20px;
   --radius-md: 12px;
 }
@@ -41,10 +49,13 @@ html {
 
 body {
   background-color: var(--bg-ivory);
+  /* Subtle woven kasavu & sandalwood texture across the entire page */
   background-image:
-    radial-gradient(circle at 15% 15%, rgba(229, 185, 92, 0.12), transparent 40%),
-    radial-gradient(circle at 85% 35%, rgba(122, 24, 33, 0.06), transparent 45%),
-    radial-gradient(circle at 50% 85%, rgba(229, 185, 92, 0.14), transparent 50%);
+    radial-gradient(circle at 12% 10%, rgba(212, 175, 55, 0.14), transparent 38%),
+    radial-gradient(circle at 88% 28%, rgba(45, 90, 54, 0.07), transparent 42%),
+    radial-gradient(circle at 18% 68%, rgba(122, 31, 31, 0.06), transparent 44%),
+    radial-gradient(circle at 85% 88%, rgba(212, 175, 55, 0.15), transparent 45%),
+    repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.025) 0px, rgba(212, 175, 55, 0.025) 1px, transparent 1px, transparent 14px);
   color: var(--text-dark);
   font-family: var(--font-sans);
   line-height: 1.65;
@@ -54,28 +65,29 @@ body {
 
 body.state-doors-locked {
   overflow: hidden;
-  height: 100vh;
+  height: 100dvh;
 }
 
 body.lang-ml {
   font-family: var(--font-ml-sans);
-  line-height: 1.8;
+  line-height: 1.82;
 }
 
 body.lang-ml .couple-title,
 body.lang-ml .section-title,
 body.lang-ml .event-name,
-body.lang-ml .secondary-title {
+body.lang-ml .secondary-title,
+body.lang-ml .thankyou-heading {
   font-family: var(--font-ml-serif);
   letter-spacing: 0;
-  line-height: 1.35;
+  line-height: 1.38;
 }
 
 body.lang-ml .hero-invite-copy,
 body.lang-ml .message-body,
 body.lang-ml .closing-blessing {
   font-family: var(--font-ml-serif);
-  font-size: 1.08rem;
+  font-size: 1.06rem;
 }
 
 .hidden {
@@ -84,9 +96,9 @@ body.lang-ml .closing-blessing {
 
 .container {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 18px;
 }
 
 .narrow-container {
@@ -94,18 +106,64 @@ body.lang-ml .closing-blessing {
 }
 
 /* ==========================================================================
-   STAGE 1: TRADITIONAL KERALA CARVED WOODEN DOORS
+   TRANSPARENT KERALA MURAL & BANANA LEAF WATERMARKS THROUGHOUT PAGE
+   ========================================================================== */
+.mural-backdrop-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mural-watermark {
+  position: absolute;
+  width: min(360px, 68vw);
+  height: auto;
+}
+
+.mural-top-left {
+  top: -40px;
+  left: -50px;
+  animation: slowMuralSpin 90s linear infinite;
+}
+
+.mural-bottom-right {
+  bottom: -20px;
+  right: -30px;
+}
+
+@keyframes slowMuralSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   SMOOTH SECTION SCROLL REVEAL
+   ========================================================================== */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   STAGE 1: REALISTIC KERALA TEMPLE SANCTUM DOORS & HANGING TEMPLE BELL
    ========================================================================== */
 .door-overlay {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #1a0b06;
+  background: radial-gradient(circle at center, #2B130A 0%, #140704 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1800px;
-  transition: opacity 0.9s ease, visibility 0.9s ease;
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.85s ease;
 }
 
 .door-overlay.fade-out {
@@ -114,52 +172,176 @@ body.lang-ml .closing-blessing {
   pointer-events: none;
 }
 
-.door-golden-backglow {
+.sanctum-divine-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, #fff7d6 0%, #f5c45e 32%, #8c4a19 72%, #2c150c 100%);
+  background: radial-gradient(circle at center, #FFF6CC 0%, #F4C95D 30%, #7A1F1F 72%, #1C0A05 100%);
   opacity: 0;
   transition: opacity 1.4s ease;
   pointer-events: none;
 }
 
-.door-overlay.doors-opening .door-golden-backglow {
+.door-overlay.doors-opening .sanctum-divine-glow {
   opacity: 1;
 }
 
-.door-frame {
+.temple-sanctum-arch {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
+  max-width: 960px;
   display: flex;
+  flex-direction: column;
+  border-left: 10px solid #2A160E;
+  border-right: 10px solid #2A160E;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+}
+
+.temple-lintel-top {
+  position: relative;
+  z-index: 12;
+  background: linear-gradient(180deg, #2C1810 0%, #3E2115 65%, #1E0F09 100%);
+  border-bottom: 4px solid var(--temple-gold);
+  padding: 12px 16px 14px;
+  text-align: center;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.75);
+}
+
+.lintel-brass-strip {
+  height: 4px;
+  width: 180px;
+  margin: 0 auto 6px;
+  background: linear-gradient(90deg, transparent, var(--temple-gold), #FFF3B0, var(--temple-gold), transparent);
+}
+
+.lintel-sanskrit {
+  font-family: var(--font-ml-serif);
+  font-size: clamp(0.88rem, 2.8vw, 1.08rem);
+  color: var(--temple-gold-light);
+  letter-spacing: 0.08em;
+}
+
+/* Hanging Temple Bell (Mani) */
+.temple-bell-assembly {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: gentleBellBreeze 3.6s ease-in-out infinite;
   -webkit-tap-highlight-color: transparent;
 }
 
-.door-panel {
+.bell-chain {
+  width: 6px;
+  height: 26px;
+  background: repeating-linear-gradient(180deg, #F3D97E 0px, #9E7B1E 4px, #F3D97E 8px);
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.temple-bell-svg {
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.75));
+  transition: transform 0.2s ease;
+}
+
+.temple-bell-assembly:hover .temple-bell-svg,
+.temple-bell-assembly:active .temple-bell-svg {
+  transform: scale(1.06);
+}
+
+.temple-bell-assembly.bell-ringing {
+  animation: bellSwingVigorous 0.95s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.bell-ring-waves {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.bell-ring-waves i {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--temple-gold-light);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.temple-bell-assembly.bell-ringing .bell-ring-waves i:nth-child(1) {
+  animation: soundRipple 0.9s ease-out forwards;
+}
+
+.temple-bell-assembly.bell-ringing .bell-ring-waves i:nth-child(2) {
+  animation: soundRipple 0.9s 0.2s ease-out forwards;
+}
+
+@keyframes gentleBellBreeze {
+  0%, 100% { transform: translateX(-50%) rotate(-2deg); }
+  50% { transform: translateX(-50%) rotate(2deg); }
+}
+
+@keyframes bellSwingVigorous {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  15% { transform: translateX(-50%) rotate(22deg); }
+  30% { transform: translateX(-50%) rotate(-20deg); }
+  45% { transform: translateX(-50%) rotate(15deg); }
+  60% { transform: translateX(-50%) rotate(-12deg); }
+  75% { transform: translateX(-50%) rotate(7deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+@keyframes soundRipple {
+  0% { transform: scale(0.5); opacity: 0.95; }
+  100% { transform: scale(2.3); opacity: 0; }
+}
+
+/* Twin Carved Rosewood & Brass Temple Doors */
+.temple-doors-viewport {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  perspective: 1800px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.temple-door {
   position: relative;
   width: 50%;
   height: 100%;
-  background: linear-gradient(135deg, #4b2414 0%, #34170c 50%, #240f07 100%);
-  border: 6px solid #261008;
-  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.75);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(122, 31, 31, 0.28), transparent 70%),
+    linear-gradient(135deg, #3C1A0E 0%, #271008 52%, #1B0A05 100%);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.85);
+  padding: 14px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 1.85s cubic-bezier(0.25, 0.85, 0.25, 1);
+  transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
-  overflow: hidden;
 }
 
 .door-left {
   transform-origin: left center;
-  border-right: 2px solid #8a6424;
+  border-right: 3px solid var(--temple-gold);
 }
 
 .door-right {
   transform-origin: right center;
-  border-left: 2px solid #8a6424;
+  border-left: 3px solid var(--temple-gold);
 }
 
 .door-overlay.doors-opening .door-left {
@@ -170,274 +352,292 @@ body.lang-ml .closing-blessing {
   transform: rotateY(108deg);
 }
 
-.wood-grain {
+.rosewood-texture {
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.015) 0px,
-    rgba(255, 255, 255, 0.015) 2px,
-    rgba(0, 0, 0, 0.14) 2px,
-    rgba(0, 0, 0, 0.14) 7px
+    rgba(255, 255, 255, 0.018) 0px,
+    rgba(255, 255, 255, 0.018) 2px,
+    rgba(0, 0, 0, 0.18) 2px,
+    rgba(0, 0, 0, 0.18) 8px
   );
   pointer-events: none;
 }
 
-.door-carving-border {
-  width: 78%;
-  height: 82%;
-  border: 3px solid rgba(212, 175, 55, 0.35);
-  border-radius: 6px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.brass-frame-outer {
   position: relative;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--temple-gold);
+  border-radius: 6px;
+  padding: 8px;
+  box-shadow: inset 0 0 18px rgba(212, 175, 55, 0.25);
 }
 
-.carved-panel {
-  flex: 1;
-  border: 1.5px solid rgba(212, 175, 55, 0.25);
+.brass-frame-inner {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid rgba(212, 175, 55, 0.55);
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 8px 0;
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08), transparent 75%);
-}
-
-.lotus-medallion {
-  width: min(130px, 24vw);
-  height: min(130px, 24vw);
-  color: var(--gold-bright);
-  opacity: 0.85;
-  filter: drop-shadow(0 0 12px rgba(229, 185, 92, 0.25));
-}
-
-.temple-arch-motif {
-  width: 68%;
-  height: 68%;
-  border-top: 2px solid rgba(229, 185, 92, 0.45);
-  border-left: 2px solid rgba(229, 185, 92, 0.25);
-  border-right: 2px solid rgba(229, 185, 92, 0.25);
-  border-radius: 80px 80px 0 0;
-}
-
-.brass-studs {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 12px;
 }
 
-.left-studs { right: 18px; }
-.right-studs { left: 18px; }
+.carved-shrine-box {
+  flex: 1.15;
+  border: 1.5px solid rgba(212, 175, 55, 0.42);
+  border-radius: 4px;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.14), rgba(0, 0, 0, 0.25) 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
 
-.brass-studs span {
-  width: 10px;
-  height: 10px;
+.deity-arch-svg {
+  width: min(125px, 34vw);
+  height: auto;
+  color: var(--temple-gold-light);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7));
+}
+
+.carved-lattice-box {
+  flex: 0.85;
+  border: 1.5px solid rgba(212, 175, 55, 0.42);
+  border-radius: 4px;
+  background: rgba(18, 7, 3, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.brass-boss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 4vw, 26px);
+}
+
+.brass-boss-grid span {
+  width: clamp(12px, 3vw, 18px);
+  height: clamp(12px, 3vw, 18px);
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff0a8, #c89b3c 65%, #6e4a12);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  background: radial-gradient(circle at 32% 32%, #FFF5BE, #D4AF37 55%, #6B440E 100%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.75);
 }
 
-.brass-handle-plate {
+.temple-lock-plate {
   position: absolute;
-  top: 50%;
+  top: 52%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 82px;
-  background: linear-gradient(180deg, #e5b95c, #9e711d 60%, #61410a);
-  border-radius: 22px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.65);
+  width: 34px;
+  height: 76px;
+  background: linear-gradient(180deg, #F3D97E, #B8860B 55%, #6B440E);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.left-plate { right: 34px; }
-.right-plate { left: 34px; }
+.left-lock { right: 16px; }
+.right-lock { left: 16px; }
 
-.brass-ring {
-  width: 24px;
-  height: 24px;
+.temple-pull-ring {
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  border: 3px solid #fff3c4;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+  border: 3.5px solid #FFF7D6;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.65);
 }
 
 .door-prompt {
   position: absolute;
   left: 50%;
-  bottom: 11%;
+  bottom: max(28px, 7vh);
   transform: translateX(-50%);
-  z-index: 10;
-  background: rgba(29, 12, 6, 0.92);
-  border: 1.5px solid var(--gold-bright);
-  color: #fff6de;
-  padding: 14px 28px;
+  z-index: 25;
+  width: max-content;
+  max-width: 90vw;
+  background: rgba(34, 13, 8, 0.94);
+  border: 1.5px solid var(--temple-gold);
+  padding: 12px 24px;
   border-radius: 999px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 24px rgba(229, 185, 92, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 24px rgba(212, 175, 55, 0.35);
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 2px;
-  animation: pulseGold 2.4s infinite ease-in-out;
+  pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .door-overlay.doors-opening .door-prompt {
   opacity: 0;
-  transform: translate(-50%, 16px);
+  transform: translate(-50%, 14px);
 }
 
 .prompt-en {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--gold-bright);
+  font-family: var(--font-sanskrit);
+  font-size: clamp(0.98rem, 3.6vw, 1.15rem);
+  color: var(--temple-gold-light);
+  letter-spacing: 0.04em;
 }
 
 .prompt-ml {
   font-family: var(--font-ml-sans);
-  font-size: 0.95rem;
-  color: #fff8e7;
-}
-
-@keyframes pulseGold {
-  0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 18px rgba(229, 185, 92, 0.25); }
-  50% { box-shadow: 0 10px 34px rgba(0, 0, 0, 0.65), 0 0 32px rgba(229, 185, 92, 0.55); }
+  font-size: 0.88rem;
+  color: #FAF7F2;
 }
 
 /* ==========================================================================
-   STAGE 2: LANGUAGE SELECTION SCREEN
+   STAGE 2: LORD GANAPATHI TEMPLE SHRINE & LANGUAGE SELECTION
    ========================================================================== */
 .language-overlay {
   position: fixed;
   inset: 0;
   z-index: 9500;
-  background: radial-gradient(circle at top, #3e1218 0%, #240a0e 70%, #150508 100%);
+  background:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.25), transparent 55%),
+    linear-gradient(180deg, #4A1212 0%, #2C0B0B 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 18px;
+  opacity: 1;
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.lang-card {
+.language-overlay.overlay-entering {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.language-overlay.overlay-leaving {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.ganapathi-card {
   width: 100%;
-  max-width: 480px;
+  max-width: 460px;
   background: var(--bg-ivory);
-  border: 2px solid var(--gold-antique);
+  background-image: radial-gradient(circle at top, rgba(212, 175, 55, 0.16), transparent 65%);
+  border: 2px solid var(--temple-gold);
   border-radius: var(--radius-lg);
-  padding: 38px 28px;
+  padding: 26px 22px 30px;
   text-align: center;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), inset 0 0 0 5px rgba(212, 175, 55, 0.14);
+}
+
+.ganapathi-shrine-emblem {
+  margin: 0 auto 6px;
+  display: flex;
+  justify-content: center;
 }
 
 .lang-auspicious {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--maroon-primary);
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 .lang-names {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 6vw, 2.75rem);
-  color: var(--teak-dark);
-  margin-bottom: 12px;
+  font-family: var(--font-sanskrit);
+  font-size: clamp(1.85rem, 6.5vw, 2.45rem);
+  color: var(--maroon-primary);
+  margin-bottom: 10px;
 }
 
 .lang-subtitle {
   color: var(--text-muted);
-  font-size: 0.98rem;
-  margin-bottom: 28px;
+  font-size: 0.94rem;
+  margin-bottom: 22px;
 }
 
 .ml-inline {
   font-family: var(--font-ml-sans);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--maroon-primary);
 }
 
 .lang-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 
 .btn-lang {
   background: linear-gradient(145deg, var(--maroon-primary), var(--maroon-deep));
-  color: #fffdf9;
-  border: 1.5px solid var(--gold-bright);
+  color: #FAF7F2;
+  border: 1.5px solid var(--temple-gold);
   border-radius: var(--radius-md);
-  padding: 18px 14px;
+  padding: 15px 12px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 3px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.btn-lang:hover {
+.btn-lang:hover, .btn-lang:active {
   transform: translateY(-2px);
   box-shadow: var(--shadow-gold);
 }
 
 .btn-lang-main {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   font-weight: 700;
 }
 
 .btn-lang-ml .btn-lang-main {
   font-family: var(--font-ml-serif);
-  font-size: 1.35rem;
+  font-size: 1.28rem;
 }
 
 .btn-lang-sub {
-  font-size: 0.78rem;
-  opacity: 0.88;
+  font-size: 0.75rem;
+  opacity: 0.9;
 }
 
 /* ==========================================================================
-   FLOATING CONTROLS (LANGUAGE SWITCH + MUSIC TOGGLE)
+   FLOATING CONTROLS (MOBILE-FIRST PILLS)
    ========================================================================== */
 .floating-controls {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: max(12px, env(safe-area-inset-top));
+  right: 12px;
   z-index: 8000;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .control-pill {
-  background: rgba(255, 253, 249, 0.94);
+  background: rgba(250, 247, 242, 0.95);
   backdrop-filter: blur(10px);
-  color: var(--teak-dark);
-  border: 1.5px solid var(--gold-antique);
+  color: var(--maroon-primary);
+  border: 1.5px solid var(--temple-gold);
   border-radius: 999px;
-  padding: 8px 15px;
-  font-size: 0.85rem;
+  padding: 7px 13px;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 6px 20px rgba(44, 21, 12, 0.14);
+  gap: 6px;
+  box-shadow: 0 6px 18px rgba(44, 24, 16, 0.14);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .control-pill:hover {
-  transform: translateY(-1px);
   background: var(--bg-sandalwood);
 }
 
@@ -445,16 +645,15 @@ body.lang-ml .closing-blessing {
   display: inline-flex;
   align-items: flex-end;
   gap: 2px;
-  height: 13px;
+  height: 12px;
 }
 
 .equalizer i {
   display: block;
-  width: 3px;
+  width: 2.5px;
   height: 4px;
   background: var(--maroon-primary);
   border-radius: 2px;
-  transition: height 0.2s ease;
 }
 
 .music-playing .equalizer i:nth-child(1) { animation: eqBar 0.8s infinite ease-in-out; }
@@ -463,17 +662,17 @@ body.lang-ml .closing-blessing {
 
 @keyframes eqBar {
   0%, 100% { height: 4px; }
-  50% { height: 13px; }
+  50% { height: 12px; }
 }
 
 /* ==========================================================================
-   PETALS & INTERACTIVE TOUCH BLOOMS
+   PETALS & CELEBRATORY FLOWER SPLASHES
    ========================================================================== */
 #petal-canvas, #bloom-layer {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 5000;
+  z-index: 9800;
   overflow: hidden;
 }
 
@@ -481,168 +680,208 @@ body.lang-ml .closing-blessing {
   position: absolute;
   top: -30px;
   border-radius: 80% 0 80% 0;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: petalFall linear forwards;
   will-change: transform;
 }
 
 @keyframes petalFall {
-  0% {
-    transform: translate3d(0, -20px, 0) rotate(0deg);
-    opacity: 0;
-  }
-  12% { opacity: 0.88; }
-  88% { opacity: 0.85; }
-  100% {
-    transform: translate3d(var(--drift-x, 60px), 105vh, 0) rotate(var(--spin-deg, 540deg));
-    opacity: 0;
-  }
+  0% { transform: translate3d(0, -20px, 0) rotate(0deg); opacity: 0; }
+  12% { opacity: 0.92; }
+  88% { opacity: 0.88; }
+  100% { transform: translate3d(var(--drift-x, 60px), 105vh, 0) rotate(var(--spin-deg, 540deg)); opacity: 0; }
 }
 
-.click-bloom {
+.splash-flower {
   position: absolute;
-  width: 14px;
-  height: 14px;
-  margin-left: -7px;
-  margin-top: -7px;
-  border-radius: 75% 15% 75% 15%;
-  animation: bloomBurst 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border-radius: 82% 14% 82% 14%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: flowerSplash var(--dur, 1.35s) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
-@keyframes bloomBurst {
+@keyframes flowerSplash {
   0% {
-    transform: translate(0, 0) scale(0.3) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(0.35) rotate(0deg);
     opacity: 1;
   }
+  70% {
+    opacity: 0.95;
+  }
   100% {
-    transform: translate(var(--bx), var(--by)) scale(1.15) rotate(var(--brot));
+    transform: translate3d(var(--sx), var(--sy), 0) scale(1.1) rotate(var(--srot));
     opacity: 0;
   }
 }
 
 /* ==========================================================================
-   MAIN INVITATION SECTIONS & KASAVU ACCENTS
+   MAIN INVITATION SECTIONS & KERALA TEMPLE STYLING
    ========================================================================== */
+.invitation-main {
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
 .kasavu-top-border, .kasavu-bottom-border {
-  height: 10px;
+  height: 11px;
   width: 100%;
   background: repeating-linear-gradient(
     90deg,
     var(--maroon-primary) 0px,
-    var(--maroon-primary) 28px,
-    var(--gold-bright) 28px,
-    var(--gold-bright) 34px,
-    var(--maroon-deep) 34px,
-    var(--maroon-deep) 38px,
-    var(--gold-bright) 38px,
-    var(--gold-bright) 44px
+    var(--maroon-primary) 26px,
+    var(--temple-gold) 26px,
+    var(--temple-gold) 33px,
+    var(--banana-leaf) 33px,
+    var(--banana-leaf) 37px,
+    var(--temple-gold) 37px,
+    var(--temple-gold) 44px
   );
 }
 
 .ornament-divider {
-  color: var(--gold-antique);
+  color: var(--temple-gold-dark);
   font-size: 1.15rem;
   letter-spacing: 0.35em;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .eyebrow, .section-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--maroon-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.9rem, 4vw, 2.75rem);
-  color: var(--teak-dark);
-  font-weight: 700;
-  margin-bottom: 14px;
+  font-family: var(--font-sanskrit);
+  font-size: clamp(1.65rem, 5.2vw, 2.5rem);
+  color: var(--maroon-primary);
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 1.25;
 }
 
 .section-header-center {
   text-align: center;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
+.mural-section-divider {
+  display: flex;
+  justify-content: center;
+  padding: 6px 16px;
+}
+
+.divider-artwork {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+}
+
+/* Hero Section */
 .hero-section {
-  padding: 72px 0 56px;
+  padding: 64px 0 36px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 44px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
   align-items: center;
 }
 
+.nilavilakku-emblem {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 6px;
+  display: inline-flex;
+  transition: transform 0.25s ease;
+}
+
+.nilavilakku-emblem:hover, .nilavilakku-emblem:active {
+  transform: scale(1.08);
+}
+
+.lamp-flame {
+  transform-origin: 48px 28px;
+  animation: flameFlicker 2.2s infinite ease-in-out;
+}
+
+@keyframes flameFlicker {
+  0%, 100% { transform: scaleY(1) rotate(-1deg); }
+  50% { transform: scaleY(1.08) rotate(1.5deg); }
+}
+
 .couple-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.6rem, 6.5vw, 4.3rem);
-  line-height: 1.08;
-  color: var(--teak-dark);
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-family: var(--font-sanskrit);
+  font-size: clamp(2.3rem, 7.5vw, 3.85rem);
+  line-height: 1.12;
+  color: var(--maroon-primary);
+  font-weight: 400;
+  margin-bottom: 6px;
 }
 
 .ampersand {
-  color: var(--gold-antique);
+  color: var(--temple-gold-dark);
+  font-family: var(--font-serif);
   font-style: italic;
-  margin: 0 8px;
+  margin: 0 6px;
 }
 
 .full-names {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--maroon-primary);
-  margin-bottom: 18px;
+  color: var(--banana-leaf);
+  margin-bottom: 14px;
 }
 
 .hero-invite-copy {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   line-height: 1.55;
   color: var(--text-dark);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hero-reception-badge {
-  background: linear-gradient(135deg, #fff9ec, #f7ebd2);
+  background: linear-gradient(135deg, #FFFDF8, var(--bg-sandalwood));
   border-left: 5px solid var(--maroon-primary);
   border-top: 1px solid var(--border-gold);
   border-right: 1px solid var(--border-gold);
   border-bottom: 1px solid var(--border-gold);
   border-radius: var(--radius-md);
-  padding: 18px 22px;
-  margin-bottom: 26px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
   box-shadow: var(--shadow-soft);
 }
 
 .badge-tag {
   display: inline-block;
   background: var(--maroon-primary);
-  color: #fff;
-  font-size: 0.72rem;
+  color: #FAF7F2;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .badge-date {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.42rem;
   font-weight: 700;
   color: var(--teak-dark);
 }
 
 .badge-time-venue {
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   font-weight: 600;
   color: var(--text-muted);
   margin-top: 2px;
@@ -651,84 +890,10 @@ body.lang-ml .closing-blessing {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
-.btn-primary, .btn-secondary, .btn-outline-gold, .btn-outline-maroon, .btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 13px 22px;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-deep));
-  color: #fffdf9;
-  box-shadow: 0 8px 20px rgba(122, 24, 33, 0.25);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(122, 24, 33, 0.35);
-}
-
-.btn-secondary {
-  background: var(--bg-sandalwood);
-  color: var(--teak-dark);
-  border: 1.5px solid var(--gold-antique);
-}
-
-.btn-secondary:hover {
-  background: #efe1c4;
-  transform: translateY(-2px);
-}
-
-.btn-outline-gold {
-  background: transparent;
-  color: var(--teak-dark);
-  border: 1.5px solid var(--gold-antique);
-}
-
-.btn-outline-gold:hover {
-  background: rgba(200, 155, 60, 0.14);
-}
-
-.btn-outline-maroon {
-  background: #fff;
-  color: var(--maroon-primary);
-  border: 1.5px solid var(--maroon-primary);
-}
-
-.btn-outline-maroon:hover {
-  background: var(--maroon-primary);
-  color: #fff;
-}
-
-.btn-whatsapp {
-  background: #1d7a46;
-  color: #fff;
-}
-
-.btn-text-link {
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 0.92rem;
-  text-decoration: none;
-}
-
-.btn-text-link:hover {
-  color: var(--maroon-primary);
-  text-decoration: underline;
-}
-
+/* Temple Arch Main Couple Photo (couple-4.jpg) */
 .hero-photo-wrapper {
   display: flex;
   justify-content: center;
@@ -737,113 +902,349 @@ body.lang-ml .closing-blessing {
 .arch-photo-frame {
   position: relative;
   width: 100%;
-  max-width: 410px;
+  max-width: 390px;
   aspect-ratio: 3 / 4;
-  border-radius: 220px 220px 24px 24px;
+  border-radius: 210px 210px 22px 22px;
   padding: 10px;
-  background: linear-gradient(145deg, var(--gold-bright), var(--gold-antique), #7c5615);
-  box-shadow: var(--shadow-gold);
+  background: linear-gradient(145deg, var(--temple-gold-light), var(--temple-gold), #7A5214);
+  box-shadow: var(--shadow-gold), 0 18px 40px rgba(44, 24, 16, 0.16);
+}
+
+.arch-inner-border {
+  width: 100%;
+  height: 100%;
+  border-radius: 200px 200px 14px 14px;
+  overflow: hidden;
+  border: 2px solid rgba(250, 247, 242, 0.75);
 }
 
 .hero-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  border-radius: 210px 210px 16px 16px;
+  object-position: center 22%;
   display: block;
 }
 
-.countdown-section {
-  padding: 36px 0 56px;
+.arch-crown-ornament {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--maroon-primary);
+  color: var(--temple-gold-light);
+  border: 2px solid var(--temple-gold);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.countdown-card {
-  background: linear-gradient(145deg, #fffdf9, #f7efe0);
-  border: 1.5px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  padding: 38px 24px;
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-outline-gold, .btn-outline-maroon, .btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-deep));
+  color: #FAF7F2;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 8px 20px rgba(122, 31, 31, 0.24);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(122, 31, 31, 0.34);
+}
+
+.btn-secondary {
+  background: var(--bg-sandalwood);
+  color: var(--maroon-primary);
+  border: 1.5px solid var(--temple-gold);
+}
+
+.btn-secondary:hover {
+  background: #EADBC0;
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  background: #FFFDF9;
+  color: var(--maroon-primary);
+  border: 1.5px solid var(--temple-gold);
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.14);
+}
+
+.btn-outline-maroon {
+  background: #FFFDF9;
+  color: var(--maroon-primary);
+  border: 1.5px solid var(--maroon-primary);
+}
+
+.btn-outline-maroon:hover {
+  background: var(--maroon-primary);
+  color: #FAF7F2;
+}
+
+.btn-whatsapp {
+  background: var(--banana-leaf);
+  color: #FAF7F2;
+}
+
+.btn-text-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.btn-text-link:hover {
+  color: var(--maroon-primary);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   TRADITIONAL KERALA PALM LEAF MANUSCRIPT (THALIYOLA) UNFOLDING ON SCROLL
+   ========================================================================== */
+.manuscript-section {
+  padding: 36px 0 48px;
+}
+
+.thaliyola-wrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  margin: 0 auto;
+  filter: drop-shadow(0 16px 32px rgba(44, 24, 16, 0.16));
+}
+
+.thaliyola-roller {
+  width: 18px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, #2D160B 0%, #6E391D 45%, #241108 100%);
+  border: 1.5px solid var(--temple-gold);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  z-index: 3;
+}
+
+.roller-cap {
+  width: 22px;
+  height: 12px;
+  background: linear-gradient(180deg, var(--temple-gold-light), var(--temple-gold-dark));
+  border-radius: 4px;
+}
+
+.roller-cord {
+  width: 6px;
+  height: 44px;
+  background: repeating-linear-gradient(180deg, var(--maroon-primary) 0px, var(--maroon-primary) 4px, var(--temple-gold) 4px, var(--temple-gold) 7px);
+  border-radius: 3px;
+}
+
+.thaliyola-leaf {
+  position: relative;
+  flex: 1;
+  background: linear-gradient(180deg, #F5E8C7 0%, #EAD6A8 50%, #DFC68E 100%);
+  border-top: 2.5px solid var(--temple-gold-dark);
+  border-bottom: 2.5px solid var(--temple-gold-dark);
+  padding: 34px 36px;
+  overflow: hidden;
+  /* Controlled dynamically by scroll progress (--unfold: 0.18 -> 1) */
+  transform-origin: center top;
+  transform: scaleY(var(--unfold, 1));
+  opacity: calc(0.35 + (var(--unfold, 1) * 0.65));
+  transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+}
+
+.palm-grain-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(122, 82, 20, 0.06) 0px,
+    rgba(122, 82, 20, 0.06) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+.binding-hole {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-ivory);
+  border: 2px solid var(--temple-gold-dark);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.hole-left { left: 12px; }
+.hole-right { right: 12px; }
+
+.thaliyola-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  box-shadow: var(--shadow-soft);
+}
+
+.thaliyola-header-emblem {
+  font-family: var(--font-ml-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--maroon-primary);
+  margin-bottom: 12px;
+}
+
+.message-body {
+  font-family: var(--font-serif);
+  font-size: 1.24rem;
+  color: #2B170D;
+  margin-bottom: 14px;
+}
+
+.family-host-box {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(122, 31, 31, 0.35);
+}
+
+.host-label {
+  font-size: 0.88rem;
+  color: var(--maroon-primary);
+  font-weight: 600;
+}
+
+.host-names {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #2B170D;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   TEMPLE MANDAPAM & ENGRAVED BRASS COUNTDOWN
+   ========================================================================== */
+.countdown-section {
+  padding: 28px 0 44px;
+}
+
+.temple-countdown-mandapam {
+  position: relative;
+  background:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.16), transparent 60%),
+    linear-gradient(180deg, #FFFDF8 0%, #F5ECDA 100%);
+  border: 2px solid var(--temple-gold);
+  border-radius: 28px 28px 18px 18px;
+  padding: 34px 20px 30px;
+  text-align: center;
+  box-shadow: var(--shadow-soft), inset 0 0 0 5px rgba(212, 175, 55, 0.12);
+}
+
+.mandapam-arch-cap {
+  display: inline-block;
+  background: var(--maroon-primary);
+  color: var(--temple-gold-light);
+  border: 1.5px solid var(--temple-gold);
+  padding: 4px 18px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.25em;
+  margin-bottom: 12px;
 }
 
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(70px, 140px));
+  grid-template-columns: repeat(4, minmax(68px, 138px));
   justify-content: center;
-  gap: 14px;
-  margin: 24px 0 26px;
+  gap: 12px;
+  margin: 22px 0 24px;
 }
 
-.time-box {
-  background: #ffffff;
-  border: 1px solid var(--border-gold);
+.brass-plaque {
+  position: relative;
+  background: linear-gradient(160deg, #FFFDF8 0%, #F2E3C2 100%);
+  border: 1.5px solid var(--temple-gold);
   border-radius: var(--radius-md);
-  padding: 16px 10px;
-  box-shadow: 0 6px 16px rgba(44, 21, 12, 0.05);
+  padding: 16px 8px;
+  box-shadow: 0 8px 18px rgba(44, 24, 16, 0.08), inset 0 0 12px rgba(212, 175, 55, 0.18);
 }
+
+.plaque-rivet {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--temple-gold-dark);
+}
+
+.plaque-rivet.tl { top: 6px; left: 6px; }
+.plaque-rivet.tr { top: 6px; right: 6px; }
+.plaque-rivet.bl { bottom: 6px; left: 6px; }
+.plaque-rivet.br { bottom: 6px; right: 6px; }
 
 .time-val {
   display: block;
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
+  font-family: var(--font-sanskrit);
+  font-size: clamp(1.85rem, 5.5vw, 2.75rem);
   color: var(--maroon-primary);
   line-height: 1.1;
 }
 
 .time-lbl {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
   margin-top: 6px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .countdown-celebration {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--maroon-primary);
-  padding: 20px;
-  margin: 16px 0;
+  padding: 16px;
+  margin: 14px 0;
 }
 
-.message-section {
-  padding: 56px 0;
-  text-align: center;
-}
-
-.message-body {
-  font-family: var(--font-serif);
-  font-size: 1.28rem;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-}
-
-.family-host-box {
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border-gold);
-}
-
-.host-label {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.host-names {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--teak-dark);
-  margin-top: 4px;
-}
-
+/* ==========================================================================
+   EVENTS SECTION
+   ========================================================================== */
 .events-section {
-  padding: 56px 0;
+  padding: 36px 0;
 }
 
 .event-card {
@@ -854,46 +1255,47 @@ body.lang-ml .closing-blessing {
 }
 
 .event-card-primary {
-  border: 2px solid var(--gold-antique);
-  margin-bottom: 28px;
+  border: 2px solid var(--temple-gold);
+  margin-bottom: 24px;
 }
 
 .event-ribbon {
-  background: linear-gradient(90deg, var(--maroon-deep), var(--maroon-primary));
-  color: #fff7df;
-  font-size: 0.8rem;
+  background: linear-gradient(90deg, var(--maroon-deep), var(--maroon-primary), var(--maroon-deep));
+  color: var(--temple-gold-light);
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 10px 24px;
+  padding: 10px 22px;
+  border-bottom: 1.5px solid var(--temple-gold);
 }
 
 .event-primary-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 28px;
-  padding: 30px;
+  gap: 24px;
+  padding: 26px;
   align-items: center;
 }
 
 .event-name {
-  font-family: var(--font-serif);
-  font-size: 2.15rem;
-  color: var(--teak-dark);
-  margin-bottom: 10px;
+  font-family: var(--font-sanskrit);
+  font-size: clamp(1.65rem, 4.5vw, 2.1rem);
+  color: var(--maroon-primary);
+  margin-bottom: 8px;
 }
 
 .event-desc {
   color: var(--text-muted);
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .event-meta-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .event-meta-list li {
@@ -902,16 +1304,29 @@ body.lang-ml .closing-blessing {
   gap: 12px;
 }
 
+.meta-badge {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--bg-sandalwood);
+  border: 1px solid var(--temple-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
 .event-meta-list strong {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--maroon-primary);
 }
 
 .event-meta-list span:last-child {
-  font-size: 1.04rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--teak-dark);
 }
@@ -919,70 +1334,71 @@ body.lang-ml .closing-blessing {
 .event-cta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .event-map-embed iframe {
   width: 100%;
-  min-height: 290px;
-  border: 1px solid var(--border-gold);
+  min-height: 260px;
+  border: 1.5px solid var(--temple-gold);
   border-radius: var(--radius-md);
 }
 
 .event-card-secondary {
-  border: 1px solid rgba(44, 21, 12, 0.14);
-  background: #fcf9f2;
-  padding: 26px 30px;
+  border: 1.5px solid var(--border-gold);
+  background: linear-gradient(180deg, #FFFDF8 0%, #F7EFE0 100%);
+  padding: 24px 26px;
 }
 
 .secondary-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 8px;
 }
 
 .secondary-tag {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: var(--bg-sandalwood);
-  color: var(--teak-mid);
-  border: 1px solid var(--border-gold);
+  background: rgba(45, 90, 54, 0.12);
+  color: var(--banana-leaf);
+  border: 1px solid rgba(45, 90, 54, 0.35);
   padding: 3px 10px;
   border-radius: 999px;
 }
 
 .secondary-title {
-  font-family: var(--font-serif);
-  font-size: 1.55rem;
-  color: var(--teak-dark);
+  font-family: var(--font-sanskrit);
+  font-size: 1.45rem;
+  color: var(--maroon-primary);
 }
 
 .secondary-note {
   font-size: 0.94rem;
   color: var(--text-muted);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .secondary-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 16px 0;
-  border-top: 1px dashed rgba(44, 21, 12, 0.16);
-  border-bottom: 1px dashed rgba(44, 21, 12, 0.16);
-  margin-bottom: 18px;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px dashed rgba(212, 175, 55, 0.55);
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.55);
+  margin-bottom: 16px;
 }
 
 .sec-lbl {
   display: block;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--maroon-primary);
+  font-weight: 700;
 }
 
 .sec-val {
@@ -994,23 +1410,115 @@ body.lang-ml .closing-blessing {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
+/* ==========================================================================
+   INSTANT ATTENDANCE CONFIRMATION (RSVP) SECTION
+   ========================================================================== */
+.rsvp-section {
+  padding: 28px 0 40px;
+}
+
+.rsvp-card {
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 60%),
+    #FFFDF9;
+  border: 2px solid var(--temple-gold);
+  border-radius: var(--radius-lg);
+  padding: 32px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.rsvp-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.rsvp-form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.rsvp-input {
+  width: 100%;
+  max-width: 380px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--temple-gold);
+  border-radius: var(--radius-md);
+  background: var(--bg-ivory);
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 0.96rem;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rsvp-input:focus {
+  border-color: var(--maroon-primary);
+  box-shadow: 0 0 0 3px rgba(122, 31, 31, 0.12);
+}
+
+.rsvp-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.rsvp-thankyou-box {
+  background: linear-gradient(145deg, #FFFDF8, var(--bg-sandalwood));
+  border: 1.5px solid var(--temple-gold);
+  border-radius: var(--radius-md);
+  padding: 24px 18px;
+  animation: fadeScaleIn 0.45s ease;
+}
+
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.thankyou-icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.thankyou-heading {
+  font-family: var(--font-sanskrit);
+  font-size: 1.5rem;
+  color: var(--maroon-primary);
+  margin-bottom: 8px;
+}
+
+.thankyou-text {
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   GALLERY & FAMILY BLESSINGS
+   ========================================================================== */
 .gallery-section {
-  padding: 56px 0;
+  padding: 36px 0;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 
 .gallery-item {
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1.5px solid var(--border-gold);
+  border: 2px solid var(--temple-gold);
   box-shadow: var(--shadow-soft);
   aspect-ratio: 3 / 4;
   cursor: pointer;
@@ -1030,137 +1538,150 @@ body.lang-ml .closing-blessing {
   transform: scale(1.04);
 }
 
-.family-gallery-placeholder {
-  margin-top: 32px;
-  background: var(--bg-sandalwood);
-  border: 1.5px dashed var(--gold-antique);
+.family-blessings-card {
+  margin-top: 28px;
+  background: linear-gradient(145deg, #FFFDF8, var(--bg-sandalwood));
+  border: 1.5px solid var(--temple-gold);
   border-radius: var(--radius-md);
-  padding: 26px;
+  padding: 24px 20px;
   text-align: center;
+  box-shadow: var(--shadow-soft);
 }
 
 .placeholder-icon {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   display: block;
   margin-bottom: 6px;
 }
 
-.family-gallery-placeholder h3 {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  color: var(--teak-dark);
-  margin-bottom: 6px;
+.family-blessings-card h3 {
+  font-family: var(--font-sanskrit);
+  font-size: 1.35rem;
+  color: var(--maroon-primary);
+  margin-bottom: 8px;
 }
 
-.family-gallery-placeholder p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+.family-blessings-card p {
+  color: var(--text-dark);
+  font-size: 0.96rem;
 }
 
+/* Share & Footer */
 .share-section {
-  padding: 40px 0 64px;
+  padding: 28px 0 52px;
 }
 
 .share-card {
-  background: #fff;
-  border: 1.5px solid var(--border-gold);
+  background: #FFFDF9;
+  border: 1.5px solid var(--temple-gold);
   border-radius: var(--radius-lg);
-  padding: 36px 24px;
+  padding: 30px 20px;
   text-align: center;
   box-shadow: var(--shadow-soft);
 }
 
 .share-copy {
   color: var(--text-muted);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .share-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .copy-feedback {
-  margin-top: 12px;
-  font-size: 0.9rem;
+  margin-top: 10px;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--maroon-primary);
   min-height: 20px;
 }
 
 .invitation-footer {
-  background: var(--teak-dark);
-  color: #fff7e6;
+  background: linear-gradient(180deg, #3A1212 0%, #240A0A 100%);
+  color: #FAF7F2;
   text-align: center;
-  padding-top: 52px;
+  padding-top: 44px;
 }
 
 .closing-blessing {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.35rem;
+  font-size: 1.28rem;
   line-height: 1.6;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .footer-couple {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  color: var(--gold-bright);
+  font-family: var(--font-sanskrit);
+  font-size: 1.5rem;
+  color: var(--temple-gold-light);
   margin-bottom: 6px;
 }
 
 .footer-meta {
-  font-size: 0.9rem;
-  opacity: 0.82;
-  padding-bottom: 44px;
+  font-size: 0.88rem;
+  opacity: 0.86;
+  padding-bottom: 38px;
 }
 
+/* Lightbox */
 .lightbox {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(16, 7, 4, 0.92);
+  background: rgba(18, 7, 5, 0.94);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
 }
 
 .lightbox img {
   max-width: 92vw;
-  max-height: 86vh;
+  max-height: 84vh;
   border-radius: var(--radius-md);
-  border: 2px solid var(--gold-bright);
+  border: 2px solid var(--temple-gold);
 }
 
 .lightbox-close, .lightbox-nav {
   position: fixed;
-  background: rgba(255, 253, 249, 0.16);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(250, 247, 242, 0.18);
+  color: #FAF7F2;
+  border: 1px solid var(--temple-gold);
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.3rem;
+  width: 42px;
+  height: 42px;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
-.lightbox-close { top: 20px; right: 20px; }
-.lightbox-nav.prev { left: 20px; top: 50%; transform: translateY(-50%); }
-.lightbox-nav.next { right: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox-close { top: 16px; right: 16px; }
+.lightbox-nav.prev { left: 14px; top: 50%; transform: translateY(-50%); }
+.lightbox-nav.next { right: 14px; top: 50%; transform: translateY(-50%); }
 
-@media (max-width: 900px) {
+/* ==========================================================================
+   MOBILE-FIRST & TABLET RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 860px) {
   .hero-grid, .event-primary-grid {
     grid-template-columns: 1fr;
   }
-  .hero-section {
-    padding-top: 84px;
+  .hero-photo-wrapper {
+    order: -1;
   }
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .arch-photo-frame {
+    max-width: 310px;
+  }
+  .hero-section {
+    padding-top: 64px;
+    text-align: center;
+  }
+  .hero-actions {
+    justify-content: center;
   }
   .secondary-grid {
     grid-template-columns: 1fr;
@@ -1168,16 +1689,56 @@ body.lang-ml .closing-blessing {
 }
 
 @media (max-width: 540px) {
+  .container {
+    padding: 0 14px;
+  }
+  .temple-sanctum-arch {
+    border-left-width: 5px;
+    border-right-width: 5px;
+  }
+  .temple-door {
+    padding: 8px;
+  }
+  .brass-frame-inner {
+    padding: 6px;
+    gap: 8px;
+  }
+  .temple-lock-plate {
+    width: 26px;
+    height: 60px;
+  }
+  .left-lock { right: 10px; }
+  .right-lock { left: 10px; }
   .lang-buttons {
     grid-template-columns: 1fr;
   }
   .countdown-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
+  .thaliyola-leaf {
+    padding: 26px 22px;
+  }
+  .thaliyola-roller {
+    width: 13px;
+  }
+  .roller-cap {
+    width: 16px;
+  }
+  .binding-hole {
+    width: 10px;
+    height: 10px;
+  }
+  .hole-left { left: 6px; }
+  .hole-right { right: 6px; }
   .gallery-grid {
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   .event-primary-grid, .event-card-secondary {
-    padding: 20px;
+    padding: 18px 16px;
+  }
+  .btn-primary, .btn-secondary, .btn-outline-gold, .btn-outline-maroon, .btn-whatsapp {
+    width: 100%;
   }
 }

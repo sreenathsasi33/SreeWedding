@@ -51,6 +51,17 @@ window.INVITATION_TRANSLATIONS = {
     btn_map_ceremony: "📍 Directions to Skyland Village",
     btn_cal_ceremony: "Add Muhurtham to Calendar →",
 
+    rsvp_kicker: "Gracious Presence",
+    rsvp_title: "Confirm Your Attendance",
+    rsvp_desc: "Tap below to let us know you will be joining our celebration.",
+    rsvp_name_placeholder: "Your Name (Optional)",
+    btn_confirm_attendance: "✨ Joyfully Attending Reception",
+    btn_confirm_both: "🪔 Attending Wedding & Reception",
+    rsvp_thankyou_title: "Thank You for Confirming!",
+    rsvp_thankyou_body: "We are delighted that you will join us! Your presence and blessings mean the world to our family.",
+    rsvp_thankyou_named: "Thank you, {name}! We are delighted that you will join us and bless our celebration.",
+    rsvp_change_btn: "Update response",
+
     gallery_kicker: "Cherished Moments",
     gallery_title: "Sreenath & Ashitha",
     family_section_title: "With Warm Wishes & Blessings",
@@ -62,6 +73,7 @@ window.INVITATION_TRANSLATIONS = {
     copied_message: "Invitation link copied to clipboard!",
 
     closing_blessing: "With warm wishes from Kashi, Sharanya, Navaneeth, Dichu, Deepu & Ranju.",
+    footer_couple_names: "Sreenath Sasi & Ashitha T",
     footer_meta: "25 January 2027 • Yahshua Auditorium, Vellarikkundu, Kasaragod",
 
     lang_switch_label: "മലയാളം",
@@ -76,7 +88,7 @@ window.INVITATION_TRANSLATIONS = {
     hero_eyebrow: "വിവാഹസൽക്കാര ക്ഷണക്കത്ത്",
     groom_short: "ശ്രീനാഥ്",
     bride_short: "അഷിത",
-    full_names: "ശ്രീനാഥ് & അഷിത",
+    full_names: "",
     hero_invite: "ഞങ്ങളുടെ ഈ സന്തോഷനിമിഷത്തോട് അനുബന്ധിച്ചുള്ള വിവാഹസൽക്കാരത്തിലേക്ക് പങ്കുചേരുന്നതിനായി താങ്കളെയും കുടുംബത്തെയും ഹൃദയപൂർവ്വം ക്ഷണിക്കുന്നു.",
     primary_event_badge: "വിവാഹസൽക്കാരം",
     reception_date_full: "2027 ജനുവരി 25, തിങ്കളാഴ്ച",
@@ -123,6 +135,17 @@ window.INVITATION_TRANSLATIONS = {
     btn_map_ceremony: "📍 സ്കൈലാൻഡ് വില്ലേജിലേക്കുള്ള വഴി",
     btn_cal_ceremony: "ശുഭമുഹൂർത്തം കലണ്ടറിൽ ചേർക്കുക →",
 
+    rsvp_kicker: "സാന്നിധ്യം അറിയിക്കുക",
+    rsvp_title: "പങ്കെടുക്കുന്നത് ഉറപ്പാക്കുക",
+    rsvp_desc: "ആഘോഷത്തിൽ പങ്കുചേരുന്ന വിവരം താഴെ ക്ലിക്ക് ചെയ്ത് അറിയിക്കുക.",
+    rsvp_name_placeholder: "താങ്കളുടെ പേര് (നിർബന്ധമില്ല)",
+    btn_confirm_attendance: "✨ വിവാഹസൽക്കാരത്തിൽ പങ്കെടുക്കുന്നു",
+    btn_confirm_both: "🪔 വിവാഹത്തിലും സൽക്കാരത്തിലും പങ്കെടുക്കുന്നു",
+    rsvp_thankyou_title: "വളരെ നന്ദി!",
+    rsvp_thankyou_body: "താങ്കളുടെ സാന്നിധ്യവും അനുഗ്രഹവും ഞങ്ങൾക്ക് ഏറെ സന്തോഷം നൽകുന്നു. ആഘോഷവേളയിൽ കാണാം!",
+    rsvp_thankyou_named: "നന്ദി {name}! താങ്കളുടെ സാന്നിധ്യവും അനുഗ്രഹവും ഞങ്ങൾക്ക് ഏറെ സന്തോഷം നൽകുന്നു.",
+    rsvp_change_btn: "മറുപടി മാറ്റുക",
+
     gallery_kicker: "മനോഹര നിമിഷങ്ങൾ",
     gallery_title: "ശ്രീനാഥ് & അഷിത",
     family_section_title: "സ്നേഹപൂർവ്വം & ആശംസകളോടെ",
@@ -134,6 +157,7 @@ window.INVITATION_TRANSLATIONS = {
     copied_message: "ക്ഷണക്കത്ത് ലിങ്ക് കോപ്പി ചെയ്തു!",
 
     closing_blessing: "ആശംസകളോടെ, കാശി, ശരണ്യ, നവനീത്, ദിച്ചു, ദീപു, രഞ്ജു",
+    footer_couple_names: "ശ്രീനാഥ് & അഷിത",
     footer_meta: "2027 ജനുവരി 25, തിങ്കളാഴ്ച • യാഷുവ ഓഡിറ്റോറിയം, വെള്ളരിക്കുണ്ട്, കാസർഗോഡ്",
 
     lang_switch_label: "English",
