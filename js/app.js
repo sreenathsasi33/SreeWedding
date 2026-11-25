@@ -286,7 +286,6 @@
   const rsvpGuestNameInput = document.getElementById("rsvp-guest-name");
   const rsvpThankyouMsg = document.getElementById("rsvp-thankyou-msg");
   const rsvpConfirmBtn = document.getElementById("rsvp-confirm-btn");
-  const rsvpBothBtn = document.getElementById("rsvp-both-btn");
   const rsvpResetBtn = document.getElementById("rsvp-reset-btn");
 
   function confirmAttendance(e) {
@@ -308,7 +307,6 @@
   }
 
   if (rsvpConfirmBtn) rsvpConfirmBtn.addEventListener("click", confirmAttendance);
-  if (rsvpBothBtn) rsvpBothBtn.addEventListener("click", confirmAttendance);
   if (rsvpResetBtn) {
     rsvpResetBtn.addEventListener("click", () => {
       rsvpThankyouBox.classList.add("hidden");

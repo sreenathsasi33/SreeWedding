@@ -2270,3 +2270,74 @@ body::after { content:'✧  ❋  ✦  ❋  ✧'; opacity:.55; color:rgba(224,193
 @media (prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
 }
+
+/* Accessibility fix: keep the reception date bright against the midnight card. */
+.hero-reception-badge .badge-date {
+  color: #f7e9c9 !important;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35), 0 0 16px rgba(230,201,142,.16);
+  opacity: 1 !important;
+}
+
+
+/* ==========================================================================
+   CONTEMPORARY RECEPTION TYPOGRAPHY — refined, modern and highly legible
+   ========================================================================== */
+:root {
+  --font-sanskrit: 'Manrope', sans-serif;
+  --font-display: 'Manrope', sans-serif;
+  --font-serif: 'DM Sans', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
+}
+body { font-family:'DM Sans',Arial,sans-serif !important; }
+.couple-title, .section-title, .event-name, .secondary-title,
+.thankyou-heading, .intro-couple, .footer-couple, .lang-names,
+.countdown-section h2, .message-title {
+  font-family:'Manrope',Arial,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:-.035em !important;
+  line-height:1.12 !important;
+  text-shadow:0 2px 18px rgba(224,193,132,.12) !important;
+}
+.time-val, .time-lbl, .countdown-celebration {
+  font-family:'Manrope',Arial,sans-serif !important;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.time-val {
+  font-size:clamp(2rem,6vw,2.85rem) !important;
+  font-weight:800 !important;
+  letter-spacing:-.045em !important;
+  line-height:1 !important;
+  color:#fff0c9 !important;
+  text-shadow:0 0 18px rgba(244,217,157,.2) !important;
+}
+.time-lbl {
+  font-size:.68rem !important;
+  font-weight:700 !important;
+  letter-spacing:.14em !important;
+  color:#e5d7bb !important;
+}
+.section-kicker, .eyebrow, .intro-kicker, .intro-foot,
+.thaliyola-header-emblem, .host-label {
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:.15em !important;
+}
+.message-body, .hero-invite-copy, .event-desc, .rsvp-subtitle,
+.share-copy, .closing-blessing, .host-names {
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-weight:400 !important;
+  line-height:1.8 !important;
+}
+.invitation-folio .message-body {
+  font-size:clamp(1rem,3.3vw,1.16rem) !important;
+  line-height:1.85 !important;
+  letter-spacing:.005em !important;
+}
+/* English letter heading is deliberately English-only; Malayalam keeps its own copy. */
+body:not(.lang-ml) .thaliyola-header-emblem { font-family:'DM Sans',Arial,sans-serif !important; }
+@media(max-width:640px) {
+  .time-val { font-size:clamp(1.85rem,8vw,2.35rem) !important; }
+  .time-lbl { font-size:.64rem !important; letter-spacing:.1em !important; }
+  .couple-title { letter-spacing:-.045em !important; }
+  .section-title { letter-spacing:-.04em !important; }
+}
