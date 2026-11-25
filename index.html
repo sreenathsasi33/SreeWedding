@@ -7,7 +7,7 @@
   <meta name="description" content="With immense joy, we invite you and your family to join us in celebrating our wedding reception on 25 January 2027 at Yahshua Auditorium, Vellarikkundu, Kasaragod." />
   <meta property="og:title" content="Sreenath &amp; Ashitha — Wedding Reception Invitation" />
   <meta property="og:description" content="Join us on 25 January 2027 (4:30 PM – 8:30 PM) at Yahshua Auditorium, Vellarikkundu, Kasaragod." />
-  <meta property="og:image" content="assets/images/couple-1.jpg" />
+  <meta property="og:image" content="assets/images/couple-4.jpg" />
   <meta property="og:type" content="website" />
 
   <!-- Google Fonts: Cinzel Decorative, Cormorant Garamond, Plus Jakarta Sans, Noto Serif Malayalam & Manjari -->
@@ -30,6 +30,15 @@
   ========================================================== -->
   <section id="door-overlay" class="door-overlay" aria-label="Traditional Kerala Wooden Entrance Doors">
     <div class="door-golden-backglow"></div>
+    <div class="temple-entry-crest" aria-hidden="true">
+      <span class="crest-ornament">❧</span>
+      <span class="crest-title">ശുഭമസ്തു</span>
+      <span class="crest-subtitle">Auspicious Beginnings</span>
+    </div>
+    <button type="button" class="temple-bell-button" id="temple-bell-button" aria-label="Ring the temple bell to open the invitation">
+      <span class="bell-chain"></span><span class="temple-bell"> घंटा </span>
+      <span class="bell-caption">Ring the temple bell</span>
+    </button>
 
     <div class="door-frame" id="door-trigger" role="button" tabindex="0" aria-label="Touch to open wedding invitation doors">
       <!-- Left Teakwood Door -->
@@ -200,10 +209,47 @@
 
         <div class="hero-photo-wrapper">
           <div class="arch-photo-frame">
-            <img src="assets/images/couple-1.jpg" alt="Sreenath Sasi and Ashitha T" class="hero-photo" />
+            <img src="assets/images/couple-4.jpg" alt="Sreenath Sasi and Ashitha T" class="hero-photo" />
             <div class="frame-corner-ornament top-left" aria-hidden="true"></div>
             <div class="frame-corner-ornament top-right" aria-hidden="true"></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRADITIONAL PALM-LEAF INVITATION -->
+    <section class="manuscript-section section-reveal" aria-label="Traditional palm leaf invitation">
+      <div class="container narrow-container">
+        <div class="manuscript-stage">
+          <div class="ganapathi-sanctum" aria-hidden="true">
+            <div class="sanctum-halo"></div>
+            <svg class="ganapathi-art" viewBox="0 0 180 190" role="img" aria-label="Decorative Ganesha illustration">
+              <g fill="none" stroke="#9A702D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M90 22c-17 0-29 13-29 29 0 11 6 20 15 25-18 8-29 24-29 45v25h86v-25c0-21-11-37-29-45 9-5 15-14 15-25 0-16-12-29-29-29z"/>
+                <path d="M64 54c-16-10-29-4-31 10-2 13 8 22 22 19M116 54c16-10 29-4 31 10 2 13-8 22-22 19"/>
+                <path d="M90 67c-5 14-5 26 0 37 5 11 1 23-10 28-9 5-20 0-21-9M90 67c5 14 5 26 0 37"/>
+                <path d="M70 93c10-8 30-8 40 0M78 117h24M72 137l-8 19h52l-8-19"/>
+                <path d="M45 166h90M57 176h66"/>
+                <path d="M90 9v13M84 15h12"/>
+              </g>
+              <circle cx="79" cy="53" r="3" fill="#9A702D"/><circle cx="101" cy="53" r="3" fill="#9A702D"/>
+              <path d="M90 28l-7 13h14z" fill="#C49A45"/>
+            </svg>
+            <span class="sanctum-label">ശ്രീ ഗണേശായ നമഃ</span>
+          </div>
+          <div class="palm-manuscript" id="palm-manuscript">
+            <div class="manuscript-roll manuscript-roll-top"></div>
+            <div class="manuscript-leaf">
+              <div class="leaf-engraving" aria-hidden="true">❧ &nbsp; ❖ &nbsp; ❧</div>
+              <p class="manuscript-kicker" data-i18n="manuscript_kicker">An Auspicious Invitation</p>
+              <h2 data-i18n="manuscript_title">With the blessings of the Almighty</h2>
+              <p data-i18n="manuscript_copy">We warmly invite you to join us for a celebration of love, family and togetherness.</p>
+              <div class="manuscript-names">Sreenath <span>&amp;</span> Ashitha</div>
+              <div class="leaf-engraving" aria-hidden="true">❧ &nbsp; ❖ &nbsp; ❧</div>
+            </div>
+            <div class="manuscript-roll manuscript-roll-bottom"></div>
+          </div>
+          <p class="manuscript-hint" data-i18n="manuscript_hint">Scroll gently to unfold the invitation</p>
         </div>
       </div>
     </section>
@@ -406,6 +452,20 @@
               With love from Sri K. S. Sasi &amp; Smt. N. V. Rajani, and warm wishes from Kashi, Sharanya, Navaneeth, Dichu, Deepu &amp; Ranju.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP / ATTENDANCE CONFIRMATION -->
+    <section class="rsvp-section section-reveal" id="rsvp-section">
+      <div class="container narrow-container">
+        <div class="rsvp-card" id="rsvp-card">
+          <div class="rsvp-lamp" aria-hidden="true">🪔</div>
+          <p class="section-kicker" data-i18n="rsvp_kicker">Your Presence Would Mean So Much</p>
+          <h2 class="section-title" data-i18n="rsvp_title">Will You Join Our Celebration?</h2>
+          <p class="rsvp-copy" data-i18n="rsvp_copy">Please let us know if you will be joining us. We look forward to celebrating together.</p>
+          <button type="button" class="btn-rsvp" id="rsvp-confirm-btn" data-i18n="rsvp_button">Yes, I’ll Be There</button>
+          <p class="rsvp-thanks hidden" id="rsvp-thanks" role="status" aria-live="polite" data-i18n="rsvp_thanks">Thank you! We look forward to welcoming you.</p>
         </div>
       </div>
     </section>

@@ -59,6 +59,37 @@
     }, 1250);
   }
 
+  const templeBellButton = document.getElementById("temple-bell-button");
+  function playTempleBell() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const now = ctx.currentTime;
+      [660, 990, 1320].forEach((frequency, index) => {
+        const oscillator = ctx.createOscillator();
+        const gain = ctx.createGain();
+        oscillator.type = "sine";
+        oscillator.frequency.setValueAtTime(frequency, now);
+        gain.gain.setValueAtTime(index === 0 ? 0.16 : 0.055, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 2.4);
+        oscillator.connect(gain);
+        gain.connect(ctx.destination);
+        oscillator.start(now);
+        oscillator.stop(now + 2.4);
+      });
+      setTimeout(() => ctx.close(), 2600);
+    } catch (_) {}
+  }
+  if (templeBellButton) {
+    templeBellButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      templeBellButton.classList.add("bell-ringing");
+      playTempleBell();
+      openWoodenDoors();
+      setTimeout(() => templeBellButton.classList.remove("bell-ringing"), 1100);
+    });
+  }
   doorTrigger.addEventListener("click", openWoodenDoors);
   doorTrigger.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -72,6 +103,7 @@
       const selected = btn.getAttribute("data-select-lang");
       setLanguage(selected);
       languageOverlay.classList.add("hidden");
+      burstPetals(42);
       document.body.classList.remove("state-doors-locked");
       invitationMain.classList.remove("hidden");
       floatingControls.classList.remove("hidden");
@@ -314,6 +346,30 @@
   if (lightbox) {
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) lightbox.classList.add("hidden");
+    });
+  }
+
+  // Reveal sections and unfold the palm-leaf manuscript as it enters view.
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        if (entry.target.id === "palm-manuscript") entry.target.classList.add("is-unfolded");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.16 });
+  document.querySelectorAll(".section-reveal, #palm-manuscript").forEach((el) => revealObserver.observe(el));
+
+  const rsvpButton = document.getElementById("rsvp-confirm-btn");
+  const rsvpThanks = document.getElementById("rsvp-thanks");
+  if (rsvpButton && rsvpThanks) {
+    rsvpButton.addEventListener("click", () => {
+      rsvpButton.classList.add("confirmed");
+      rsvpButton.disabled = true;
+      rsvpThanks.classList.remove("hidden");
+      rsvpThanks.classList.add("thanks-visible");
+      rsvpThanks.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   }
 })();

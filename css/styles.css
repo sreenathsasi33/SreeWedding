@@ -1181,3 +1181,247 @@ body.lang-ml .closing-blessing {
     padding: 20px;
   }
 }
+
+
+/* ==========================================================================
+   REFINED KERALA TEMPLE EDITION — RESPONSIVE FINISHING LAYER
+   ========================================================================== */
+:root {
+  --bg-ivory: #faf7f2;
+  --bg-sandalwood: #eee3d1;
+  --bg-card: rgba(255, 253, 248, .92);
+  --teak-dark: #20382f;
+  --teak-mid: #365548;
+  --maroon-deep: #29463b;
+  --maroon-primary: #355b4b;
+  --gold-bright: #d4af37;
+  --gold-antique: #a98235;
+  --text-dark: #29372f;
+  --text-muted: #6d6a5d;
+  --border-gold: rgba(169, 130, 53, .32);
+  --shadow-soft: 0 18px 54px rgba(43, 55, 43, .10);
+  --shadow-gold: 0 14px 36px rgba(169, 130, 53, .20);
+  --radius-lg: 26px;
+}
+body {
+  background-color: var(--bg-ivory);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(212,175,55,.12), transparent 34%),
+    radial-gradient(ellipse at 92% 28%, rgba(53,91,75,.09), transparent 36%),
+    radial-gradient(ellipse at 52% 86%, rgba(184,148,89,.11), transparent 40%),
+    repeating-linear-gradient(135deg, rgba(143,117,71,.018) 0 1px, transparent 1px 9px);
+}
+body::before {
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:-1; opacity:.17;
+  background-image:radial-gradient(ellipse at center, transparent 52%, rgba(130,105,63,.12) 100%);
+}
+.section-reveal { opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform .9s cubic-bezier(.2,.75,.2,1); }
+.section-reveal.is-visible { opacity:1; transform:translateY(0); }
+button, a, .gallery-item, .event-card, .control-pill, .btn-primary, .btn-secondary {
+  transition-duration:.35s;
+  transition-timing-function:cubic-bezier(.2,.75,.25,1);
+}
+.btn-primary, .btn-secondary, .btn-outline-gold, .btn-outline-maroon, .btn-lang {
+  border-radius:999px;
+}
+.btn-primary, .btn-lang {
+  background:linear-gradient(135deg,#466b56,#203d32);
+  border-color:rgba(212,175,55,.82);
+  box-shadow:0 8px 22px rgba(32,61,50,.17);
+}
+.btn-primary:hover, .btn-lang:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(32,61,50,.23); }
+.section-title, .couple-title, .event-name, .secondary-title {
+  color:#29463b;
+  text-shadow:0 1px rgba(255,255,255,.8);
+}
+.section-kicker, .eyebrow { color:#a17b31; letter-spacing:.16em; }
+.hero-section, .countdown-section, .message-section, .events-section, .gallery-section, .share-section, .rsvp-section, .manuscript-section {
+  position:relative;
+}
+.hero-section::before, .countdown-section::before, .message-section::before,
+.events-section::before, .gallery-section::before, .share-section::before {
+  content:"❧"; position:absolute; top:18px; right:clamp(12px,5vw,70px);
+  color:rgba(169,130,53,.13); font:clamp(3rem,8vw,6rem) Georgia,serif;
+  pointer-events:none; transform:rotate(18deg);
+}
+.hero-photo-wrapper { filter:drop-shadow(0 18px 24px rgba(45,57,43,.16)); }
+.arch-photo-frame { border-radius:190px 190px 26px 26px; padding:10px; background:linear-gradient(145deg,#f9f1df,#c9a65a,#f8f0dc); box-shadow:0 18px 48px rgba(38,55,43,.16); }
+.hero-photo { border-radius:180px 180px 18px 18px; object-fit:cover; }
+.hero-reception-badge, .countdown-card, .event-card, .share-card, .family-gallery-placeholder {
+  background:linear-gradient(145deg,rgba(255,254,250,.96),rgba(243,236,221,.94));
+  border:1px solid rgba(169,130,53,.38);
+  box-shadow:var(--shadow-soft);
+  border-radius:24px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-reception-badge::before, .countdown-card::before, .event-card::before, .share-card::before {
+  content:""; position:absolute; inset:7px; border:1px solid rgba(169,130,53,.18);
+  border-radius:18px; pointer-events:none;
+}
+.countdown-card { background:linear-gradient(135deg,#29483b,#1e382f); color:#fff9eb; }
+.countdown-card .section-title, .countdown-card .section-kicker { color:#f7e9c5; }
+.time-box { background:rgba(250,247,242,.10); border:1px solid rgba(212,175,55,.5); border-radius:18px; backdrop-filter:blur(8px); }
+.time-val { color:#f2d88f; font-family:var(--font-display); }
+.time-lbl { color:#fff4d9; }
+.event-ribbon { background:linear-gradient(90deg,#9c7834,#d4af37,#9c7834); color:#fffdf6; }
+.btn-secondary, .btn-outline-maroon { color:#315444; border-color:#9f813f; }
+.kasavu-top-border, .kasavu-bottom-border { opacity:.75; }
+.ornament-divider { color:#b18a3d; }
+
+/* Temple entrance: carved teak, brass inlay, hanging bell */
+.door-overlay {
+  background:
+    radial-gradient(ellipse at 50% 40%,#536b50 0%,#263e32 48%,#17291f 100%);
+}
+.door-overlay::before {
+  content:""; position:absolute; inset:16px; border:1px solid rgba(224,190,111,.42);
+  outline:7px double rgba(224,190,111,.10); pointer-events:none;
+}
+.door-frame { max-width:1100px; margin:0 auto; height:100%; align-items:stretch; }
+.door-panel {
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.035),transparent 18%,rgba(0,0,0,.18) 50%,transparent 82%),
+    repeating-linear-gradient(92deg,#5c351f 0,#71472a 4px,#4b2b1a 8px,#684128 13px);
+  border:8px ridge #98733a;
+  box-shadow:inset 0 0 0 7px rgba(28,17,10,.7),inset 0 0 70px rgba(0,0,0,.45);
+}
+.door-carving-border { border:3px double rgba(226,190,107,.72); border-radius:3px; background:rgba(27,18,11,.12); }
+.carved-panel { border:1px solid rgba(226,190,107,.42); background:radial-gradient(ellipse,rgba(224,190,111,.13),transparent 70%); }
+.lotus-medallion { color:#e0bd70; }
+.temple-arch-motif { border-color:rgba(224,190,111,.65); width:76%; height:74%; position:relative; }
+.temple-arch-motif::after { content:"❖"; position:absolute; top:42%; left:50%; transform:translate(-50%,-50%); color:#dfbd73; font-size:clamp(2rem,5vw,4rem); }
+.temple-entry-crest {
+  position:absolute; z-index:12; top:4%; left:50%; transform:translateX(-50%);
+  text-align:center; color:#f1d99c; text-shadow:0 2px 8px #140d08;
+  display:flex; flex-direction:column; align-items:center; gap:2px; pointer-events:none;
+}
+.crest-ornament { font-size:2.1rem; line-height:1; color:#e4c47e; }
+.crest-title { font-family:var(--font-ml-serif); font-size:clamp(1.1rem,3vw,1.65rem); }
+.crest-subtitle { font: .7rem var(--font-serif); letter-spacing:.18em; text-transform:uppercase; }
+.temple-bell-button {
+  position:absolute; z-index:20; top:12%; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  background:transparent; border:0; color:#f4d58c; cursor:pointer; padding:10px 16px;
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,.5));
+}
+.bell-chain { height:35px; width:2px; background:linear-gradient(#d9b55d,#8a6427); }
+.temple-bell {
+  width:48px; height:43px; border:3px solid #e0bd70; border-radius:7px 7px 19px 19px;
+  background:linear-gradient(100deg,#76521b,#e4c06c 45%,#956b26);
+  color:transparent; position:relative; box-shadow:inset 0 0 8px rgba(255,244,190,.6),0 5px 10px #160e08;
+}
+.temple-bell::before { content:""; position:absolute; left:-7px; right:-7px; bottom:-5px; height:7px; border-radius:50%; background:#e2bf6b; }
+.temple-bell::after { content:""; position:absolute; width:7px; height:11px; border-radius:50%; background:#e2bf6b; bottom:-16px; left:50%; transform:translateX(-50%); }
+.bell-caption { font: .78rem var(--font-serif); letter-spacing:.08em; color:#f7e7bd; white-space:nowrap; }
+.temple-bell-button.bell-ringing .temple-bell { animation:bellSwing .22s ease-in-out 4; }
+@keyframes bellSwing { 0%,100%{transform:rotate(0)} 25%{transform:rotate(13deg)} 75%{transform:rotate(-13deg)} }
+.door-prompt { bottom:5%; background:rgba(28,48,38,.94); border-color:#d4af37; }
+
+/* Palm-leaf manuscript + Ganesha sanctum */
+.manuscript-section { padding:clamp(52px,8vw,100px) 0; overflow:hidden; }
+.manuscript-stage { text-align:center; position:relative; }
+.ganapathi-sanctum { width:min(220px,58vw); margin:0 auto 22px; padding:14px 18px 10px; position:relative; }
+.sanctum-halo { position:absolute; inset:0; border-radius:50%; background:radial-gradient(ellipse,rgba(212,175,55,.22),transparent 68%); }
+.ganapathi-art { width:100%; height:auto; max-height:190px; position:relative; filter:drop-shadow(0 5px 8px rgba(80,55,22,.12)); }
+.sanctum-label { display:block; color:#9c7834; font-family:var(--font-ml-serif); font-size:.92rem; position:relative; }
+.palm-manuscript {
+  width:min(760px,100%); margin:0 auto; perspective:1200px;
+  transform-origin:top center; opacity:.72; transform:rotateX(-72deg) translateY(-22px) scaleY(.45);
+  transition:transform 1.65s cubic-bezier(.18,.78,.22,1),opacity 1.2s ease;
+}
+.palm-manuscript.is-unfolded { opacity:1; transform:rotateX(0) translateY(0) scaleY(1); }
+.manuscript-leaf {
+  position:relative; padding:clamp(24px,5vw,46px) clamp(20px,6vw,70px);
+  color:#493c25; background:
+    radial-gradient(ellipse at 12% 20%,rgba(255,255,220,.45),transparent 30%),
+    repeating-linear-gradient(0deg,rgba(89,67,32,.045) 0 1px,transparent 1px 5px),
+    linear-gradient(100deg,#b9a16c,#d8c796 18%,#c9b47f 50%,#ddcfa5 82%,#ad9560);
+  border:8px double #8f713d; box-shadow:inset 0 0 30px rgba(76,53,22,.24),0 18px 35px rgba(45,55,39,.14);
+}
+.manuscript-roll { height:16px; border-radius:12px; background:linear-gradient(180deg,#b98e46,#e1c477 35%,#8c672d 75%,#c59e52); box-shadow:0 5px 10px rgba(49,39,22,.2); }
+.manuscript-kicker { color:#8c642b; font-family:var(--font-ml-serif); letter-spacing:.08em; }
+.manuscript-leaf h2 { font-family:var(--font-display); font-size:clamp(1.15rem,3vw,1.8rem); color:#3b3826; margin:10px 0; }
+.manuscript-copy { max-width:560px; margin:auto; }
+.manuscript-names { margin:18px 0; font:clamp(1.7rem,5vw,2.8rem) var(--font-serif); color:#365443; }
+.manuscript-names span { color:#a47b31; }
+.leaf-engraving { color:#92723d; font-size:1.3rem; margin:12px 0; }
+.manuscript-hint { margin-top:18px; color:#9b793a; font:italic 1rem var(--font-serif); }
+
+/* RSVP */
+.rsvp-section { padding:clamp(45px,7vw,80px) 0; }
+.rsvp-card {
+  text-align:center; padding:clamp(28px,5vw,54px) clamp(20px,5vw,48px);
+  border:1px solid rgba(169,130,53,.42); border-radius:28px;
+  background:linear-gradient(145deg,rgba(255,254,249,.96),rgba(235,228,209,.94));
+  box-shadow:var(--shadow-soft); position:relative; overflow:hidden;
+}
+.rsvp-card::before { content:"❧"; position:absolute; right:18px; top:-20px; font:6rem Georgia; color:rgba(169,130,53,.12); }
+.rsvp-lamp { font-size:2rem; margin-bottom:8px; }
+.rsvp-copy { max-width:520px; margin:12px auto 22px; color:var(--text-muted); }
+.btn-rsvp { padding:14px 30px; border:1px solid #c8a44e; border-radius:999px; background:linear-gradient(135deg,#456b55,#234334); color:#fff8e8; font-weight:700; box-shadow:0 8px 22px rgba(35,67,52,.2); cursor:pointer; }
+.btn-rsvp:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(35,67,52,.25); }
+.btn-rsvp.confirmed { opacity:.72; cursor:default; }
+.rsvp-thanks { margin:20px auto 0; color:#315a43; font-weight:700; }
+.thanks-visible { animation:thanksIn .65s ease both; }
+@keyframes thanksIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+/* Malayalam typography and remove repeated full-name line beneath split names */
+body.lang-ml .full-names { display:none; }
+body.lang-ml .manuscript-leaf h2 { font-family:var(--font-ml-serif); }
+body.lang-ml .manuscript-copy, body.lang-ml .rsvp-copy { font-family:var(--font-ml-serif); }
+
+/* Mobile-first refinements */
+@media (max-width: 760px) {
+  .container { padding-left:17px; padding-right:17px; }
+  .hero-grid { display:flex; flex-direction:column; gap:24px; }
+  .hero-text { order:1; text-align:center; }
+  .hero-photo-wrapper { order:0; width:min(82%,340px); margin:0 auto; }
+  .hero-photo { width:100%; }
+  .couple-title { font-size:clamp(2.3rem,10vw,3.4rem); line-height:1.08; }
+  .hero-actions, .event-cta-row, .share-buttons { display:flex; flex-direction:column; align-items:stretch; gap:12px; }
+  .hero-actions > *, .event-cta-row > *, .share-buttons > * { width:100%; text-align:center; justify-content:center; }
+  .floating-controls { top:8px; right:8px; left:8px; justify-content:flex-end; gap:6px; }
+  .control-pill { padding:7px 10px; font-size:.76rem; }
+  .lang-card { padding:30px 20px; }
+  .lang-buttons { gap:9px; }
+  .btn-lang { padding:15px 8px; }
+  .countdown-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .time-box { min-height:86px; padding:12px 8px; }
+  .time-val { font-size:clamp(1.7rem,7vw,2.4rem); }
+  .event-primary-grid { grid-template-columns:1fr; }
+  .event-map-embed iframe { min-height:230px; }
+  .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .gallery-item { min-height:150px; }
+  .door-frame { max-width:none; }
+  .door-panel { border-width:5px; }
+  .door-carving-border { width:84%; height:70%; padding:8px; }
+  .carved-panel { margin:5px 0; }
+  .brass-studs { gap:18px; }
+  .brass-studs span { width:7px; height:7px; }
+  .brass-handle-plate { width:27px; height:55px; }
+  .brass-ring { width:17px; height:17px; }
+  .left-plate { right:19px; } .right-plate { left:19px; }
+  .temple-entry-crest { top:3%; }
+  .temple-bell-button { top:12%; }
+  .door-prompt { bottom:7%; padding:11px 18px; width:max-content; max-width:90%; }
+  .prompt-en { font-size:1rem; }
+  .prompt-ml { font-size:.82rem; }
+  .manuscript-section { padding:45px 0 58px; }
+  .manuscript-leaf { padding:24px 18px; border-width:5px; }
+  .manuscript-roll { height:12px; }
+  .manuscript-leaf h2 { line-height:1.35; }
+  .rsvp-card { padding:30px 20px; }
+}
+@media (max-width: 380px) {
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .lang-names { font-size:1.85rem; }
+  .bell-caption { font-size:.68rem; }
+  .temple-bell-button { top:13%; }
+  .hero-photo-wrapper { width:90%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+  .section-reveal { opacity:1; transform:none; }
+}
