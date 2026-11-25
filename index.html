@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Sreenath &amp; Ashitha — Wedding Reception Invitation</title>
+  <meta name="description" content="With immense joy, we invite you and your family to join us in celebrating our wedding reception on 25 January 2027 at Yahshua Auditorium, Vellarikkundu, Kasaragod." />
+  <meta property="og:title" content="Sreenath &amp; Ashitha — Wedding Reception Invitation" />
+  <meta property="og:description" content="Join us on 25 January 2027 (4:30 PM – 8:30 PM) at Yahshua Auditorium, Vellarikkundu, Kasaragod." />
+  <meta property="og:image" content="assets/images/couple-1.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Cinzel Decorative, Cormorant Garamond, Plus Jakarta Sans, Noto Serif Malayalam & Manjari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manjari:wght@400;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="state-doors-locked">
+  <!-- Background Audio: Seetha Kalyana - Agam -->
+  <audio id="bg-music" src="assets/audio/seetha-kalyana-agam.mp3" loop preload="auto"></audio>
+
+  <!-- Floating Ambient Petals & Interactive Click Blooms Container -->
+  <div id="petal-canvas" aria-hidden="true"></div>
+  <div id="bloom-layer" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       STAGE 1: TRADITIONAL KERALA CARVED WOODEN DOORS
+  ========================================================== -->
+  <section id="door-overlay" class="door-overlay" aria-label="Traditional Kerala Wooden Entrance Doors">
+    <div class="door-golden-backglow"></div>
+
+    <div class="door-frame" id="door-trigger" role="button" tabindex="0" aria-label="Touch to open wedding invitation doors">
+      <!-- Left Teakwood Door -->
+      <div class="door-panel door-left">
+        <div class="wood-grain"></div>
+        <div class="door-carving-border">
+          <div class="carved-panel top-panel">
+            <svg viewBox="0 0 120 120" class="lotus-medallion" aria-hidden="true">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="2" />
+              <circle cx="60" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" />
+              <path d="M60 16 C68 36, 84 44, 60 60 C36 44, 52 36, 60 16 Z" fill="currentColor" opacity="0.75"/>
+              <path d="M60 104 C68 84, 84 76, 60 60 C36 76, 52 84, 60 104 Z" fill="currentColor" opacity="0.75"/>
+              <path d="M16 60 C36 52, 44 36, 60 60 C44 84, 36 68, 16 60 Z" fill="currentColor" opacity="0.75"/>
+              <path d="M104 60 C84 52, 76 36, 60 60 C76 84, 84 68, 104 60 Z" fill="currentColor" opacity="0.75"/>
+              <circle cx="60" cy="60" r="9" fill="currentColor" />
+            </svg>
+          </div>
+          <div class="carved-panel bottom-panel">
+            <div class="temple-arch-motif"></div>
+          </div>
+        </div>
+        <!-- Brass Studs & Handle -->
+        <div class="brass-studs left-studs">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="brass-handle-plate left-plate">
+          <div class="brass-ring"></div>
+        </div>
+      </div>
+
+      <!-- Right Teakwood Door -->
+      <div class="door-panel door-right">
+        <div class="wood-grain"></div>
+        <div class="door-carving-border">
+          <div class="carved-panel top-panel">
+            <svg viewBox="0 0 120 120" class="lotus-medallion" aria-hidden="true">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="2" />
+              <circle cx="60" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" />
+              <path d="M60 16 C68 36, 84 44, 60 60 C36 44, 52 36, 60 16 Z" fill="currentColor" opacity="0.75"/>
+              <path d="M60 104 C68 84, 84 76, 60 60 C36 76, 52 84, 60 104 Z" fill="currentColor" opacity="0.75"/>
+              <path d="M16 60 C36 52, 44 36, 60 60 C44 84, 36 68, 16 60 Z" fill="currentColor" opacity="0.75"/>
+              <path d="M104 60 C84 52, 76 36, 60 60 C76 84, 84 68, 104 60 Z" fill="currentColor" opacity="0.75"/>
+              <circle cx="60" cy="60" r="9" fill="currentColor" />
+            </svg>
+          </div>
+          <div class="carved-panel bottom-panel">
+            <div class="temple-arch-motif"></div>
+          </div>
+        </div>
+        <!-- Brass Studs & Handle -->
+        <div class="brass-studs right-studs">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="brass-handle-plate right-plate">
+          <div class="brass-ring"></div>
+        </div>
+      </div>
+
+      <!-- Center Prompt Badge -->
+      <div class="door-prompt" id="door-prompt">
+        <div class="prompt-lamp-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="34" height="34">
+            <path d="M32 6 C36 14, 37 19, 32 23 C27 19, 28 14, 32 6 Z" fill="#FFD166"/>
+            <path d="M22 26 L42 26 L38 32 L26 32 Z" fill="#D4AF37"/>
+            <rect x="30" y="32" width="4" height="18" fill="#D4AF37"/>
+            <path d="M20 52 L44 52 L47 56 L17 56 Z" fill="#D4AF37"/>
+          </svg>
+        </div>
+        <span class="prompt-en">Touch to Open</span>
+        <span class="prompt-ml">തുറക്കാൻ സ്പർശിക്കുക</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STAGE 2: LANGUAGE SELECTION OVERLAY
+  ========================================================== -->
+  <section id="language-overlay" class="language-overlay hidden" aria-label="Choose Invitation Language">
+    <div class="lang-card">
+      <div class="ornament-divider" aria-hidden="true">✦ ❖ ✦</div>
+      <p class="lang-auspicious">ശുഭമസ്തു &bull; Auspicious Beginnings</p>
+      <h1 class="lang-names">Sreenath &amp; Ashitha</h1>
+      <p class="lang-subtitle">Please select your preferred language<br/><span class="ml-inline">ദയവായി ഭാഷ തിരഞ്ഞെടുക്കുക</span></p>
+
+      <div class="lang-buttons">
+        <button type="button" class="btn-lang" data-select-lang="en">
+          <span class="btn-lang-main">English</span>
+          <span class="btn-lang-sub">Continue in English</span>
+        </button>
+        <button type="button" class="btn-lang btn-lang-ml" data-select-lang="ml">
+          <span class="btn-lang-main">മലയാളം</span>
+          <span class="btn-lang-sub">മലയാളത്തിൽ തുടരുക</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FLOATING CONTROLS (LANGUAGE SWITCH + MUSIC ON/OFF)
+  ========================================================== -->
+  <header id="floating-controls" class="floating-controls hidden">
+    <button type="button" id="lang-toggle-btn" class="control-pill" aria-label="Switch Language">
+      <span class="control-icon">🌐</span>
+      <span id="lang-toggle-label">മലയാളം</span>
+    </button>
+
+    <button type="button" id="music-toggle-btn" class="control-pill music-playing" aria-label="Toggle Background Music" aria-pressed="true">
+      <span class="equalizer" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </span>
+      <span id="music-toggle-label">Music On</span>
+    </button>
+  </header>
+
+  <!-- =========================================================
+       STAGE 3: MAIN INVITATION CONTENT
+  ========================================================== -->
+  <main id="invitation-main" class="invitation-main hidden">
+    <!-- Decorative Kasavu Border Frame -->
+    <div class="kasavu-top-border" aria-hidden="true"></div>
+
+    <!-- HERO SECTION (RECEPTION FOCUSED) -->
+    <section class="hero-section section-reveal">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="nilavilakku-emblem" aria-hidden="true">
+            <svg viewBox="0 0 80 96" width="54" height="64">
+              <defs>
+                <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#FFF3B0" />
+                  <stop offset="55%" stop-color="#FFB703" />
+                  <stop offset="100%" stop-color="#FB8500" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="40" cy="18" r="16" fill="url(#flameGlow)" />
+              <path d="M40 6 C45 15, 46 21, 40 26 C34 21, 35 15, 40 6 Z" fill="#FFB703" />
+              <path d="M24 30 L56 30 L50 38 L30 38 Z" fill="#B8860B" />
+              <rect x="37" y="38" width="6" height="36" rx="2" fill="#D4AF37" />
+              <ellipse cx="40" cy="54" rx="10" ry="3" fill="#B8860B" />
+              <path d="M22 76 L58 76 L64 84 L16 84 Z" fill="#B8860B" />
+            </svg>
+          </div>
+
+          <p class="eyebrow" data-i18n="hero_eyebrow">Wedding Reception Invitation</p>
+          <h1 class="couple-title">
+            <span data-i18n="groom_short">Sreenath</span>
+            <span class="ampersand">&amp;</span>
+            <span data-i18n="bride_short">Ashitha</span>
+          </h1>
+          <p class="full-names" data-i18n="full_names">Sreenath Sasi &amp; Ashitha T</p>
+
+          <p class="hero-invite-copy" data-i18n="hero_invite">
+            With immense joy, we invite you and your family to join us in celebrating our wedding reception.
+          </p>
+
+          <!-- Primary Reception Highlight Pill -->
+          <div class="hero-reception-badge">
+            <div class="badge-tag" data-i18n="primary_event_badge">Wedding Reception</div>
+            <div class="badge-date" data-i18n="reception_date_full">Monday, 25 January 2027</div>
+            <div class="badge-time-venue" data-i18n="reception_time_venue">4:30 PM – 8:30 PM &bull; Yahshua Auditorium, Vellarikkundu, Kasaragod</div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#events-section" class="btn-primary" data-i18n="btn_view_details">Venue &amp; Directions</a>
+            <button type="button" id="hero-whatsapp-btn" class="btn-secondary" data-i18n="btn_share_whatsapp">Share on WhatsApp</button>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrapper">
+          <div class="arch-photo-frame">
+            <img src="assets/images/couple-1.jpg" alt="Sreenath Sasi and Ashitha T" class="hero-photo" />
+            <div class="frame-corner-ornament top-left" aria-hidden="true"></div>
+            <div class="frame-corner-ornament top-right" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE COUNTDOWN SECTION (TARGET: 25 JAN 2027, 4:30 PM IST) -->
+    <section class="countdown-section section-reveal" aria-labelledby="countdown-heading">
+      <div class="container">
+        <div class="countdown-card">
+          <p class="section-kicker" data-i18n="countdown_kicker">Counting Down to the Celebration</p>
+          <h2 id="countdown-heading" class="section-title" data-i18n="countdown_title">Wedding Reception Begins In</h2>
+
+          <div id="countdown-grid" class="countdown-grid">
+            <div class="time-box">
+              <span id="cd-days" class="time-val">000</span>
+              <span class="time-lbl" data-i18n="cd_days">Days</span>
+            </div>
+            <div class="time-box">
+              <span id="cd-hours" class="time-val">00</span>
+              <span class="time-lbl" data-i18n="cd_hours">Hours</span>
+            </div>
+            <div class="time-box">
+              <span id="cd-minutes" class="time-val">00</span>
+              <span class="time-lbl" data-i18n="cd_minutes">Minutes</span>
+            </div>
+            <div class="time-box">
+              <span id="cd-seconds" class="time-val">00</span>
+              <span class="time-lbl" data-i18n="cd_seconds">Seconds</span>
+            </div>
+          </div>
+
+          <div id="countdown-celebration" class="countdown-celebration hidden" data-i18n="countdown_started">
+            The Wedding Reception Celebrations Have Begun! We Look Forward to Welcoming You!
+          </div>
+
+          <div class="countdown-actions">
+            <a id="gcal-reception-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-outline-gold" data-i18n="btn_add_calendar">
+              📅 Add Reception to Google Calendar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GROOM'S FAMILY INVITATION MESSAGE -->
+    <section class="message-section section-reveal">
+      <div class="container narrow-container">
+        <div class="ornament-divider" aria-hidden="true">❖ ❧ ❖</div>
+        <p class="section-kicker" data-i18n="message_kicker">Cordial Invitation</p>
+        <h2 class="section-title" data-i18n="message_title">A Celebration of Love &amp; Togetherness</h2>
+
+        <p class="message-body" data-i18n="message_body_1">
+          With immense joy, we invite you and your family to join us in celebrating our wedding reception.
+        </p>
+        <p class="message-body" data-i18n="message_body_2">
+          Your gracious presence and blessings will make this celebration truly special.
+        </p>
+
+        <div class="family-host-box">
+          <p class="host-label" data-i18n="hosted_by_label">With Love,</p>
+          <p class="host-names" data-i18n="hosted_by_names">Sri K. S. Sasi &amp; Smt. N. V. Rajani</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS SECTION (RECEPTION PROMINENT + WEDDING CEREMONY SECONDARY) -->
+    <section id="events-section" class="events-section section-reveal">
+      <div class="container">
+        <div class="section-header-center">
+          <p class="section-kicker" data-i18n="events_kicker">Schedule &amp; Venues</p>
+          <h2 class="section-title" data-i18n="events_title">Celebration Details</h2>
+        </div>
+
+        <!-- PRIMARY EVENT CARD: WEDDING RECEPTION -->
+        <article class="event-card event-card-primary">
+          <div class="event-ribbon" data-i18n="reception_ribbon">Main Celebration &bull; Reception</div>
+          <div class="event-primary-grid">
+            <div class="event-details">
+              <h3 class="event-name" data-i18n="reception_heading">Wedding Reception</h3>
+              <p class="event-desc" data-i18n="reception_desc">
+                With immense joy, we invite you and your family to join us in celebrating our wedding reception.
+              </p>
+
+              <ul class="event-meta-list">
+                <li>
+                  <span class="meta-icon">🗓️</span>
+                  <div>
+                    <strong data-i18n="lbl_date">Date</strong>
+                    <span data-i18n="reception_date_full">Monday, 25 January 2027</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="meta-icon">⏰</span>
+                  <div>
+                    <strong data-i18n="lbl_time">Time</strong>
+                    <span data-i18n="reception_time">4:30 PM to 8:30 PM</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="meta-icon">🏛️</span>
+                  <div>
+                    <strong data-i18n="lbl_venue">Venue</strong>
+                    <span data-i18n="reception_venue">Yahshua Auditorium, Vellarikkundu, Kasaragod</span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="event-cta-row">
+                <a href="https://maps.app.goo.gl/9gu1PoUhj3RtBDAR6" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="btn_map_reception">
+                  📍 Open Reception in Google Maps
+                </a>
+                <a id="gcal-reception-card-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-i18n="btn_cal_short">
+                  + Save Date
+                </a>
+              </div>
+            </div>
+
+            <div class="event-map-embed">
+              <iframe
+                title="Yahshua Auditorium, Vellarikkundu, Kasaragod Map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=Yahshua%20Auditorium%20Vellarikkundu%20Kasaragod&t=&z=15&ie=UTF8&iwloc=&output=embed">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+        <!-- SECONDARY EVENT CARD: WEDDING CEREMONY (MUHURTHAM) -->
+        <article class="event-card event-card-secondary">
+          <div class="secondary-header">
+            <span class="secondary-tag" data-i18n="ceremony_tag">Sacred Union</span>
+            <h3 class="secondary-title" data-i18n="ceremony_heading">Wedding Ceremony (Muhurtham)</h3>
+          </div>
+          <p class="secondary-note" data-i18n="ceremony_note">
+            For close relatives and well-wishers attending the wedding ceremony:
+          </p>
+
+          <div class="secondary-grid">
+            <div class="sec-item">
+              <span class="sec-lbl" data-i18n="lbl_date">Date</span>
+              <span class="sec-val" data-i18n="ceremony_date">Sunday, 24 January 2027</span>
+            </div>
+            <div class="sec-item">
+              <span class="sec-lbl" data-i18n="lbl_muhurtham">Muhurtham</span>
+              <span class="sec-val" data-i18n="ceremony_time">10:30 AM to 11:30 AM</span>
+            </div>
+            <div class="sec-item">
+              <span class="sec-lbl" data-i18n="lbl_venue">Venue</span>
+              <span class="sec-val" data-i18n="ceremony_venue">Skyland Village, Mattool, Kannur</span>
+            </div>
+          </div>
+
+          <div class="secondary-actions">
+            <a href="https://maps.app.goo.gl/2rdjiLCV85t2547aA" target="_blank" rel="noopener noreferrer" class="btn-outline-maroon" data-i18n="btn_map_ceremony">
+              📍 Directions to Skyland Village
+            </a>
+            <a id="gcal-ceremony-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-text-link" data-i18n="btn_cal_ceremony">
+              Add Muhurtham to Calendar &rarr;
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COUPLE PHOTO GALLERY -->
+    <section class="gallery-section section-reveal">
+      <div class="container">
+        <div class="section-header-center">
+          <p class="section-kicker" data-i18n="gallery_kicker">Cherished Moments</p>
+          <h2 class="section-title" data-i18n="gallery_title">Sreenath &amp; Ashitha</h2>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <figure class="gallery-item" data-index="0">
+            <img src="assets/images/couple-1.jpg" alt="Sreenath and Ashitha evening portrait" loading="lazy" />
+          </figure>
+          <figure class="gallery-item" data-index="1">
+            <img src="assets/images/couple-2.jpg" alt="Sreenath and Ashitha night lights portrait" loading="lazy" />
+          </figure>
+          <figure class="gallery-item" data-index="2">
+            <img src="assets/images/couple-3.jpg" alt="Sreenath and Ashitha together" loading="lazy" />
+          </figure>
+          <figure class="gallery-item" data-index="3">
+            <img src="assets/images/couple-4.jpg" alt="Sreenath and Ashitha in traditional Kerala attire" loading="lazy" />
+          </figure>
+          <figure class="gallery-item" data-index="4">
+            <img src="assets/images/couple-5.jpg" alt="Ashitha smiling candidly with Sreenath" loading="lazy" />
+          </figure>
+          <figure class="gallery-item" data-index="5">
+            <img src="assets/images/couple-6.jpg" alt="Sreenath smiling candidly with Ashitha" loading="lazy" />
+          </figure>
+        </div>
+
+        <!-- Family Blessings & Wishes Card -->
+        <div class="family-gallery-placeholder">
+          <div class="placeholder-inner">
+            <span class="placeholder-icon">🪔</span>
+            <h3 data-i18n="family_section_title">With Warm Wishes &amp; Blessings</h3>
+            <p data-i18n="family_section_desc">
+              With love from Sri K. S. Sasi &amp; Smt. N. V. Rajani, and warm wishes from Kashi, Sharanya, Navaneeth, Dichu, Deepu &amp; Ranju.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHARE & SAVE SECTION -->
+    <section class="share-section section-reveal">
+      <div class="container narrow-container">
+        <div class="share-card">
+          <h2 class="section-title" data-i18n="share_title">Share the Joy</h2>
+          <p class="share-copy" data-i18n="share_desc">
+            Share this invitation with family and friends, or save the link for easy reference.
+          </p>
+          <div class="share-buttons">
+            <button type="button" id="footer-whatsapp-btn" class="btn-whatsapp" data-i18n="btn_share_whatsapp">
+              Share Invitation via WhatsApp
+            </button>
+            <button type="button" id="copy-link-btn" class="btn-secondary" data-i18n="btn_copy_link">
+              Copy Invitation Link
+            </button>
+          </div>
+          <p id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING BLESSINGS & FOOTER -->
+    <footer class="invitation-footer">
+      <div class="container narrow-container">
+        <div class="ornament-divider" aria-hidden="true">✦ ❖ ✦</div>
+        <p class="closing-blessing" data-i18n="closing_blessing">
+          With warm wishes from Kashi, Sharanya, Navaneeth, Dichu, Deepu &amp; Ranju.
+        </p>
+        <p class="footer-couple">Sreenath Sasi &amp; Ashitha T</p>
+        <p class="footer-meta" data-i18n="footer_meta">25 January 2027 &bull; Yahshua Auditorium, Vellarikkundu, Kasaragod</p>
+      </div>
+      <div class="kasavu-bottom-border" aria-hidden="true"></div>
+    </footer>
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR GALLERY -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo Viewer">
+    <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close photo viewer">&times;</button>
+    <button type="button" id="lightbox-prev" class="lightbox-nav prev" aria-label="Previous photo">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged couple portrait" />
+    <button type="button" id="lightbox-next" class="lightbox-nav next" aria-label="Next photo">&#10095;</button>
+  </div>
+
+  <!-- Modular Data & Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
