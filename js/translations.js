@@ -1,15 +1,6 @@
 window.INVITATION_TRANSLATIONS = {
   en: {
     page_title: "Sreenath & Ashitha — Wedding Reception Invitation",
-    manuscript_kicker: "An Auspicious Invitation",
-    manuscript_title: "With the blessings of the Almighty",
-    manuscript_copy: "We warmly invite you to join us for a celebration of love, family and togetherness.",
-    manuscript_hint: "Scroll gently to unfold the invitation",
-    rsvp_kicker: "Your Presence Would Mean So Much",
-    rsvp_title: "Will You Join Our Celebration?",
-    rsvp_copy: "Please let us know if you will be joining us. We look forward to celebrating together.",
-    rsvp_button: "Yes, I’ll Be There",
-    rsvp_thanks: "Thank you! We look forward to welcoming you.",
     hero_eyebrow: "Wedding Reception Invitation",
     groom_short: "Sreenath",
     bride_short: "Ashitha",
@@ -82,15 +73,6 @@ window.INVITATION_TRANSLATIONS = {
 
   ml: {
     page_title: "ശ്രീനാഥ് & അഷിത — വിവാഹസൽക്കാര ക്ഷണം",
-    manuscript_kicker: "മംഗളകരമായ ക്ഷണം",
-    manuscript_title: "ഈശ്വരാനുഗ്രഹത്തോടെ",
-    manuscript_copy: "സ്നേഹത്തിന്റെയും കുടുംബസംഗമത്തിന്റെയും ഈ ആഘോഷത്തിലേക്ക് താങ്കളെ ഹൃദയപൂർവ്വം ക്ഷണിക്കുന്നു.",
-    manuscript_hint: "ക്ഷണക്കത്ത് തുറക്കാൻ പതുക്കെ താഴേക്ക് സ്ക്രോൾ ചെയ്യുക",
-    rsvp_kicker: "താങ്കളുടെ സാന്നിധ്യം ഞങ്ങൾക്ക് വിലപ്പെട്ടതാണ്",
-    rsvp_title: "ഞങ്ങളോടൊപ്പം ആഘോഷത്തിൽ ചേരുമോ?",
-    rsvp_copy: "പങ്കെടുക്കുമോ എന്ന് ദയവായി അറിയിക്കുക. താങ്കളെ സ്വാഗതം ചെയ്യാൻ കാത്തിരിക്കുന്നു.",
-    rsvp_button: "ഞാൻ പങ്കെടുക്കും",
-    rsvp_thanks: "നന്ദി! താങ്കളെ സ്വാഗതം ചെയ്യാൻ ഞങ്ങൾ കാത്തിരിക്കുന്നു.",
     hero_eyebrow: "വിവാഹസൽക്കാര ക്ഷണക്കത്ത്",
     groom_short: "ശ്രീനാഥ്",
     bride_short: "അഷിത",
