@@ -1855,3 +1855,197 @@ body {
 }
 #petal-canvas,#bloom-layer {pointer-events:none}
 .hero-photo,.gallery-item img {object-position:center 42%}
+
+/* =====================================================================
+   AFTER-DARK LUXURY RECEPTION REDESIGN — champagne, midnight & florals
+   Applied site-wide so every section shares one rich evening atmosphere.
+   ===================================================================== */
+:root {
+  --bg-ivory: #101522;
+  --bg-sandalwood: #171d2b;
+  --bg-palm-leaf: #202333;
+  --bg-card: rgba(24, 29, 43, .94);
+  --maroon-primary: #c9a66b;
+  --maroon-deep: #8d6a3d;
+  --temple-gold: #d9b978;
+  --temple-gold-dark: #987344;
+  --temple-gold-light: #f7e5b5;
+  --banana-leaf: #657d70;
+  --teak-dark: #080d17;
+  --text-dark: #f4ead8;
+  --text-muted: #c5b89f;
+  --border-gold: rgba(222, 190, 126, .48);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --shadow-soft: 0 20px 55px rgba(0,0,0,.38);
+  --shadow-gold: 0 12px 42px rgba(217,185,120,.2);
+}
+html, body { background:#101522; color:#f4ead8; }
+body {
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(116,91,57,.28), transparent 42%),
+    radial-gradient(ellipse at 0% 35%, rgba(67,83,104,.30), transparent 38%),
+    radial-gradient(ellipse at 100% 70%, rgba(104,76,57,.24), transparent 42%),
+    repeating-linear-gradient(135deg, rgba(235,211,160,.025) 0 1px, transparent 1px 13px),
+    linear-gradient(180deg,#101522,#151a29 48%,#0b111d);
+  background-attachment: fixed;
+}
+/* Fine ornamental stage frame and soft chandelier-like glows */
+body::before {
+  content:""; position:fixed; inset:12px; z-index:0; pointer-events:none;
+  border:1px solid rgba(217,185,120,.19); border-radius:5px;
+  box-shadow:inset 0 0 70px rgba(217,185,120,.035);
+}
+body::after {
+  content:"✧     ❋                         ✦                         ❋     ✧";
+  white-space:pre; position:fixed; inset:auto 0 0; height:100vh; z-index:0;
+  pointer-events:none; display:flex; align-items:flex-start; justify-content:space-around;
+  padding:5vh 2vw; color:rgba(224,193,132,.14); font-size:clamp(24px,5vw,58px);
+  text-shadow:0 0 28px rgba(235,205,144,.28);
+}
+#invitation-main, #floating-controls, .mural-backdrop-layer { position:relative; z-index:1; }
+.mural-backdrop-layer { opacity:.22; filter:sepia(1) saturate(.5); }
+/* All content sections become richly layered, not flat blocks */
+.hero-section, .manuscript-section, .countdown-section, .events-section,
+.rsvp-section, .gallery-section, .share-section, .invitation-footer {
+  position:relative; isolation:isolate; color:#f4ead8;
+  background:
+    radial-gradient(ellipse at 5% 5%, rgba(218,185,120,.14), transparent 30%),
+    radial-gradient(ellipse at 95% 95%, rgba(128,101,70,.17), transparent 34%),
+    linear-gradient(145deg,rgba(19,25,39,.96),rgba(28,30,43,.94));
+  border-top:1px solid rgba(217,185,120,.14);
+  border-bottom:1px solid rgba(217,185,120,.12);
+}
+.hero-section::before, .manuscript-section::before, .countdown-section::before,
+.events-section::before, .rsvp-section::before, .gallery-section::before,
+.share-section::before {
+  content:""; position:absolute; inset:18px; z-index:-1; pointer-events:none;
+  border:1px solid rgba(217,185,120,.13);
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(217,185,120,.12), transparent 28%),
+    radial-gradient(ellipse at 100% 100%, rgba(217,185,120,.10), transparent 28%);
+  opacity:.85;
+}
+.section-kicker, .eyebrow, .section-header-center .section-kicker { color:#e3c88e!important; letter-spacing:.24em; text-transform:uppercase; }
+.couple-title, .section-title, .event-name, .secondary-title, .thankyou-heading,
+.lang-names, .intro-couple, .footer-couple {
+  font-family:'Cormorant Garamond',Georgia,serif!important;
+  color:#f5e6c4!important; font-weight:600; letter-spacing:.035em;
+  text-shadow:0 3px 22px rgba(220,185,117,.18);
+}
+.ampersand, .couple-title .ampersand { color:#d9b978!important; }
+.hero-invite-copy, .message-body, .rsvp-subtitle, .share-copy, .closing-blessing,
+.event-desc, .secondary-note, .family-blessings-card p { color:#d7cbb5!important; }
+/* Hero portrait: gold gallery frame instead of temple arch */
+.arch-photo-frame { background:linear-gradient(135deg,#f3dfad,#8d6a3d 22%,#f4dfa7 48%,#70512e 70%,#e7ca8d)!important; padding:7px!important; box-shadow:0 25px 70px rgba(0,0,0,.52),0 0 35px rgba(217,185,120,.16)!important; }
+.arch-inner-border { border:1px solid rgba(255,239,197,.75)!important; }
+.hero-photo { filter:saturate(.92) contrast(1.04); }
+.arch-crown-ornament { color:#f7e5b5!important; text-shadow:0 0 16px #d9b978; }
+.nilavilakku-emblem { filter:grayscale(1) sepia(1) saturate(.8); }
+/* Cordial invitation panel styled as a velvet-and-gold stationery plaque */
+.thaliyola-wrapper { filter:drop-shadow(0 18px 35px rgba(0,0,0,.4)); }
+.thaliyola-roller { background:linear-gradient(90deg,#624b2d,#d9b978,#6e512c)!important; }
+.thaliyola-leaf {
+  background:
+   radial-gradient(circle at 10% 10%,rgba(255,236,190,.16),transparent 32%),
+   radial-gradient(circle at 90% 90%,rgba(255,236,190,.12),transparent 30%),
+   repeating-linear-gradient(45deg,rgba(240,216,167,.035) 0 1px,transparent 1px 8px),
+   linear-gradient(135deg,#25283a,#171d2c 58%,#292536)!important;
+  border:1px solid #b99458!important; color:#f5ead5!important;
+  box-shadow:inset 0 0 45px rgba(0,0,0,.35),0 0 0 5px rgba(217,185,120,.08)!important;
+}
+.thaliyola-content, .message-body, .host-names, .host-label { color:#f1e5ce!important; }
+.thaliyola-header-emblem { color:#e4c98e!important; }
+.binding-hole { background:#101522!important; border-color:#b99458!important; }
+/* Countdown: illuminated reception stage plaques */
+.temple-countdown-mandapam, .brass-plaque {
+  background:linear-gradient(145deg,rgba(49,43,48,.96),rgba(17,23,36,.98))!important;
+  border:1px solid rgba(224,193,132,.7)!important;
+  box-shadow:inset 0 0 28px rgba(217,185,120,.10),0 18px 48px rgba(0,0,0,.38)!important;
+}
+.time-val { color:#f4d99d!important; text-shadow:0 0 20px rgba(244,217,157,.28); }
+.time-lbl { color:#d9c7a7!important; }
+/* Event, RSVP and share cards */
+.event-card, .rsvp-card, .share-card, .family-blessings-card, .event-map-embed,
+.secondary-grid, .hero-reception-badge {
+  background:linear-gradient(145deg,rgba(38,43,57,.97),rgba(19,25,39,.98))!important;
+  color:#f4ead8!important; border:1px solid rgba(217,185,120,.48)!important;
+  box-shadow:0 20px 50px rgba(0,0,0,.34),inset 0 1px rgba(255,239,202,.07)!important;
+}
+.event-ribbon, .badge-tag { background:linear-gradient(90deg,#8d6a3d,#e4c98e,#987344)!important; color:#171522!important; }
+.event-meta-list strong, .event-meta-list span, .sec-lbl, .sec-val, .meta-badge { color:#e9d9b9!important; }
+.btn-primary, .btn-secondary, .btn-outline-gold, .btn-outline-maroon, .btn-whatsapp,
+.btn-lang, .control-pill, .intro-open {
+  background:linear-gradient(120deg,#8c693b,#e6cb91 48%,#a17a45)!important;
+  color:#171522!important; border:1px solid #f0dba9!important;
+  box-shadow:0 8px 25px rgba(217,185,120,.2)!important;
+}
+.btn-primary:hover, .btn-secondary:hover, .btn-lang:hover, .intro-open:hover { filter:brightness(1.12); transform:translateY(-2px); }
+.btn-text-link, .copy-feedback { color:#e4c98e!important; }
+.rsvp-input { background:#111827!important; color:#f5ead5!important; border:1px solid #9b8057!important; }
+.rsvp-input::placeholder { color:#b6a78e!important; }
+/* Gallery like a decorated ballroom photo wall */
+.gallery-grid { gap:18px!important; }
+.gallery-item {
+  padding:7px!important; border:1px solid #c8a66e!important;
+  background:linear-gradient(135deg,#f3dfad,#77562f,#e9cf98)!important;
+  box-shadow:0 18px 42px rgba(0,0,0,.48),0 0 20px rgba(217,185,120,.10)!important;
+  transform:rotate(var(--gallery-tilt,0deg));
+}
+.gallery-item:nth-child(odd) { --gallery-tilt:-.6deg; }
+.gallery-item:nth-child(even) { --gallery-tilt:.6deg; }
+.gallery-item img { border:1px solid rgba(255,245,220,.55); }
+/* Dividers become sparkling gold flourishes */
+.mural-section-divider, .kasavu-top-border, .kasavu-bottom-border { opacity:.8; filter:sepia(1) saturate(.65); }
+.mural-section-divider svg { filter:drop-shadow(0 0 8px rgba(217,185,120,.28)); }
+/* Intro and language gate: ballroom lighting and ornamental frame */
+.door-overlay, .language-overlay {
+  background:
+   radial-gradient(ellipse at 50% 42%,rgba(116,91,57,.34),transparent 40%),
+   radial-gradient(ellipse at 8% 8%,rgba(207,177,119,.18),transparent 28%),
+   radial-gradient(ellipse at 92% 92%,rgba(207,177,119,.16),transparent 30%),
+   linear-gradient(145deg,#080e19,#1a1d2b 50%,#090e18)!important;
+}
+.intro-frame, .ganapathi-card {
+  background:
+   radial-gradient(ellipse at top,rgba(217,185,120,.16),transparent 55%),
+   linear-gradient(145deg,rgba(31,34,48,.94),rgba(10,16,28,.97))!important;
+  border:1px solid rgba(226,197,140,.68)!important;
+  box-shadow:0 0 0 8px rgba(217,185,120,.07),0 0 0 9px rgba(217,185,120,.24),0 30px 90px rgba(0,0,0,.62)!important;
+}
+.intro-frame::before, .ganapathi-card::before {
+  content:"✧  ❋  ✦  ❋  ✧"; display:block; color:#d9b978; letter-spacing:.8em;
+  font-size:19px; margin-bottom:16px; text-align:center; text-shadow:0 0 16px rgba(255,225,160,.65);
+}
+.intro-kicker, .intro-foot, .intro-invited, .intro-subtitle, .lang-auspicious, .lang-subtitle { color:#e5d4b3!important; }
+.intro-monogram { color:#e8cd92!important; text-shadow:0 0 34px rgba(236,204,142,.32); }
+.intro-rule { color:#e8cd92!important; }
+.ganapathi-shrine-emblem { display:none!important; }
+.lang-auspicious::before { content:"✦  ✧  ✦"; display:block; color:#e3c88e; font-size:27px; letter-spacing:.4em; margin-bottom:12px; }
+.lang-names { color:#f3dfb2!important; }
+.lang-buttons { gap:14px; }
+/* The site is intentionally a night reception, with no flat white sections */
+.section-header-center, .container, .hero-grid, .event-primary-grid { position:relative; z-index:1; }
+.invitation-footer { background:linear-gradient(180deg,#151a28,#080e18)!important; }
+.footer-meta { color:#b9a98c!important; }
+@media(max-width:640px) {
+ body::before { inset:5px; }
+ .hero-section::before, .manuscript-section::before, .countdown-section::before,
+ .events-section::before, .rsvp-section::before, .gallery-section::before,.share-section::before { inset:8px; }
+ .intro-frame, .ganapathi-card { margin:18px!important; padding:28px 20px!important; }
+}
+/* Delicate gold botanical line-art on every section, like ballroom stage drapery */
+.hero-section::before, .manuscript-section::before, .countdown-section::before,
+.events-section::before, .rsvp-section::before, .gallery-section::before,
+.share-section::before {
+  background-image:
+    url('../assets/artwork/gold-floral-corner.svg'),
+    url('../assets/artwork/gold-floral-corner.svg'),
+    radial-gradient(ellipse at 0% 0%, rgba(217,185,120,.10), transparent 28%),
+    radial-gradient(ellipse at 100% 100%, rgba(217,185,120,.08), transparent 28%);
+  background-repeat:no-repeat,no-repeat,no-repeat,no-repeat;
+  background-position:left top,right bottom,left top,right bottom;
+  background-size:clamp(110px,18vw,210px),clamp(110px,18vw,210px) auto,cover,cover;
+  opacity:.92;
+}
