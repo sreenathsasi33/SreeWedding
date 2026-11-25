@@ -18,10 +18,10 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="state-doors-locked">
-  <!-- Background Audio: Seetha Kalyana - Agam -->
-  <audio id="bg-music" src="assets/audio/seetha-kalyana-agam.mp3" loop preload="auto"></audio>
+  <!-- Background Audio: Onakkamunthiri -->
+  <audio id="bg-music" src="assets/audio/onakkamunthiri.mp3" loop preload="auto"></audio>
 
-  <!-- Ambient Temple Petals & Interactive Touch Blooms -->
+  <!-- Ambient golden stars and interactive starbursts -->
   <div id="petal-canvas" aria-hidden="true"></div>
   <div id="bloom-layer" aria-hidden="true"></div>
 
@@ -57,137 +57,28 @@
     </svg>
   </div>
 
-  <!-- =========================================================
-       STAGE 1: KERALA TEMPLE SANCTUM DOORS WITH HANGING TEMPLE BELL
-  ========================================================== -->
-  <section id="door-overlay" class="door-overlay" aria-label="Traditional Kerala Temple Entrance">
-    <div class="sanctum-divine-glow"></div>
-
-    <!-- Ornate Granite & Brass Temple Gopuram Frame -->
-    <div class="temple-sanctum-arch">
-      <div class="temple-lintel-top">
-        <div class="lintel-brass-strip"></div>
-        <span class="lintel-sanskrit">॥ ശ്രീ ഗണേശായ നമഃ ॥</span>
-      </div>
-
-      <!-- Hanging Brass Temple Bell (Mani) -->
-      <button type="button" id="temple-bell-trigger" class="temple-bell-assembly" aria-label="Ring the temple bell to open the doors">
-        <span class="bell-chain"></span>
-        <svg class="temple-bell-svg" viewBox="0 0 120 140" width="84" height="98" aria-hidden="true">
-          <defs>
-            <linearGradient id="bellBrassGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#7A5214" />
-              <stop offset="28%" stop-color="#F6D87A" />
-              <stop offset="55%" stop-color="#D4AF37" />
-              <stop offset="82%" stop-color="#FFF0A8" />
-              <stop offset="100%" stop-color="#6B440E" />
-            </linearGradient>
-            <radialGradient id="bellAura" cx="50%" cy="60%" r="50%">
-              <stop offset="0%" stop-color="#FFE699" stop-opacity="0.7" />
-              <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-          <circle cx="60" cy="74" r="54" fill="url(#bellAura)" />
-          <!-- Top Yali / Loop Handle -->
-          <circle cx="60" cy="18" r="10" fill="none" stroke="url(#bellBrassGrad)" stroke-width="5" />
-          <path d="M46 28 Q60 20 74 28 L70 36 L50 36 Z" fill="url(#bellBrassGrad)" />
-          <!-- Bell Dome & Ridges -->
-          <path d="M46 36 C36 52, 32 82, 20 102 L100 102 C88 82, 84 52, 74 36 Z" fill="url(#bellBrassGrad)" />
-          <rect x="34" y="64" width="52" height="4" rx="2" fill="#6E4910" opacity="0.55" />
-          <rect x="27" y="86" width="66" height="5" rx="2.5" fill="#6E4910" opacity="0.55" />
-          <!-- Flared Rim -->
-          <path d="M16 102 Q60 112 104 102 L106 109 Q60 119 14 109 Z" fill="url(#bellBrassGrad)" />
-          <!-- Clapper (Naavu) -->
-          <circle cx="60" cy="117" r="7" fill="#9E6E1B" />
-        </svg>
-        <span class="bell-ring-waves" aria-hidden="true">
-          <i></i><i></i>
-        </span>
+  <!-- Elegant starlit reception welcome -->
+  <section id="door-overlay" class="door-overlay luxury-intro" aria-label="Wedding reception welcome">
+    <div class="intro-starfield" aria-hidden="true"></div>
+    <div class="intro-frame">
+      <div class="intro-kicker">A CELEBRATION OF LOVE</div>
+      <div class="intro-monogram" aria-hidden="true">S <span>&amp;</span> A</div>
+      <div class="intro-rule"><i></i><span>✦</span><i></i></div>
+      <p class="intro-invited">Together with their families</p>
+      <h1 class="intro-couple">Sreenath <em>&amp;</em> Ashitha</h1>
+      <p class="intro-subtitle">Joyfully invite you to celebrate their wedding reception</p>
+      <button type="button" id="door-trigger" class="intro-open">
+        <span>OPEN INVITATION</span><b>✧</b>
       </button>
-
-      <!-- Twin Carved Rosewood & Brass Temple Doors -->
-      <div class="temple-doors-viewport" id="door-trigger" role="button" tabindex="0" aria-label="Touch temple bell or doors to open">
-        <!-- Left Temple Door -->
-        <div class="temple-door door-left">
-          <div class="rosewood-texture"></div>
-          <div class="brass-frame-outer">
-            <div class="brass-frame-inner">
-              <!-- Upper Carved Gopuram Panel -->
-              <div class="carved-shrine-box">
-                <svg viewBox="0 0 140 160" class="deity-arch-svg" aria-hidden="true">
-                  <path d="M20 145 L20 68 Q20 22 70 14 Q120 22 120 68 L120 145 Z" fill="none" stroke="currentColor" stroke-width="2.5" />
-                  <path d="M30 140 L30 72 Q30 34 70 26 Q110 34 110 72 L110 140" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" />
-                  <!-- Sacred Lotus & Chakra Medallion -->
-                  <circle cx="70" cy="84" r="28" fill="none" stroke="currentColor" stroke-width="1.8" />
-                  <path d="M70 50 C77 66, 86 72, 70 84 C54 72, 63 66, 70 50 Z" fill="currentColor" opacity="0.85" />
-                  <path d="M70 118 C77 102, 86 96, 70 84 C54 96, 63 102, 70 118 Z" fill="currentColor" opacity="0.85" />
-                  <path d="M36 84 C52 77, 58 68, 70 84 C58 100, 52 91, 36 84 Z" fill="currentColor" opacity="0.85" />
-                  <path d="M104 84 C88 77, 82 68, 70 84 C82 100, 88 91, 104 84 Z" fill="currentColor" opacity="0.85" />
-                  <circle cx="70" cy="84" r="6" fill="currentColor" />
-                </svg>
-              </div>
-              <!-- Lower Lattice (Azhi) Panel -->
-              <div class="carved-lattice-box">
-                <div class="brass-boss-grid">
-                  <span></span><span></span><span></span>
-                  <span></span><span></span><span></span>
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Heavy Brass Temple Lock Plate & Ring -->
-          <div class="temple-lock-plate left-lock">
-            <div class="lock-ornament-top"></div>
-            <div class="temple-pull-ring"></div>
-          </div>
-        </div>
-
-        <!-- Right Temple Door -->
-        <div class="temple-door door-right">
-          <div class="rosewood-texture"></div>
-          <div class="brass-frame-outer">
-            <div class="brass-frame-inner">
-              <div class="carved-shrine-box">
-                <svg viewBox="0 0 140 160" class="deity-arch-svg" aria-hidden="true">
-                  <path d="M20 145 L20 68 Q20 22 70 14 Q120 22 120 68 L120 145 Z" fill="none" stroke="currentColor" stroke-width="2.5" />
-                  <path d="M30 140 L30 72 Q30 34 70 26 Q110 34 110 72 L110 140" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" />
-                  <circle cx="70" cy="84" r="28" fill="none" stroke="currentColor" stroke-width="1.8" />
-                  <path d="M70 50 C77 66, 86 72, 70 84 C54 72, 63 66, 70 50 Z" fill="currentColor" opacity="0.85" />
-                  <path d="M70 118 C77 102, 86 96, 70 84 C54 96, 63 102, 70 118 Z" fill="currentColor" opacity="0.85" />
-                  <path d="M36 84 C52 77, 58 68, 70 84 C58 100, 52 91, 36 84 Z" fill="currentColor" opacity="0.85" />
-                  <path d="M104 84 C88 77, 82 68, 70 84 C82 100, 88 91, 104 84 Z" fill="currentColor" opacity="0.85" />
-                  <circle cx="70" cy="84" r="6" fill="currentColor" />
-                </svg>
-              </div>
-              <div class="carved-lattice-box">
-                <div class="brass-boss-grid">
-                  <span></span><span></span><span></span>
-                  <span></span><span></span><span></span>
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="temple-lock-plate right-lock">
-            <div class="lock-ornament-top"></div>
-            <div class="temple-pull-ring"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Prompt Badge -->
-      <div class="door-prompt" id="door-prompt">
-        <span class="prompt-en">Touch the Temple Bell to Enter</span>
-        <span class="prompt-ml">മണി മുഴക്കി ഉള്ളിലേക്ക് പ്രവേശിക്കുക</span>
-      </div>
+      <p class="intro-foot">25 JANUARY 2027&nbsp; · &nbsp;VELLARIKKUNDU</p>
     </div>
+    <div id="temple-bell-trigger" class="hidden" aria-hidden="true"></div>
   </section>
 
   <!-- =========================================================
        STAGE 2: LORD GANAPATHI SHRINE & LANGUAGE SELECTION
   ========================================================== -->
-  <section id="language-overlay" class="language-overlay hidden" aria-label="Lord Ganapathi Blessing and Language Selection">
+  <section id="language-overlay" class="language-overlay hidden" aria-label="Choose invitation language">
     <div class="ganapathi-card">
       <!-- Sacred Prabhamandalam Arch & Lord Ganapathi Temple Relief -->
       <div class="ganapathi-shrine-emblem" aria-hidden="true">

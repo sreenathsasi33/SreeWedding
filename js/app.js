@@ -16,8 +16,8 @@
     { src: "assets/images/couple-6.jpg", alt: "Sreenath smiling candidly with Ashitha" }
   ];
 
-  // Traditional Kerala floral splash palette: Jasmine, Marigold, Hibiscus, Lotus Pink, Temple Gold
-  const FLOWER_COLORS = ["#FFFDF7", "#F7B731", "#EB3B5A", "#FADBD8", "#D4AF37", "#FF9F43"];
+  // Champagne-gold star palette for a refined reception look
+  const FLOWER_COLORS = ["#FFF8DC", "#F7E3A1", "#D4AF37", "#FFFFFF", "#E8C66A"];
 
   let currentLang = "en";
   let musicEnabled = true;
@@ -40,76 +40,34 @@
   /* =========================================================
      1. WEB AUDIO TEMPLE BELL CHIME + CELEBRATORY FLOWER SPLASH
   ========================================================= */
-  function playTempleBellChime() {
-    try {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-      const now = ctx.currentTime;
-
-      // Rich harmonic partials mimicking a cast-bronze Kerala temple mani
-      const partials = [
-        { freq: 880, gain: 0.24, decay: 2.4 },
-        { freq: 1318.5, gain: 0.14, decay: 1.9 },
-        { freq: 1760, gain: 0.11, decay: 1.6 },
-        { freq: 2489, gain: 0.07, decay: 1.1 }
-      ];
-
-      partials.forEach((p) => {
-        const osc = ctx.createOscillator();
-        const gainNode = ctx.createGain();
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(p.freq, now);
-        gainNode.gain.setValueAtTime(0.001, now);
-        gainNode.gain.exponentialRampToValueAtTime(p.gain, now + 0.02);
-        gainNode.gain.exponentialRampToValueAtTime(0.0001, now + p.decay);
-        osc.connect(gainNode);
-        gainNode.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + p.decay + 0.05);
-      });
-    } catch {
-      // Fallback silently if Web Audio is blocked
-    }
-  }
+  function playTempleBellChime() { /* Elegant visual reveal; no temple bell sound. */ }
 
   function triggerFlowerSplash(count = 54, originX = window.innerWidth / 2, originY = window.innerHeight / 2) {
     if (!bloomLayer) return;
-
     for (let i = 0; i < count; i++) {
-      const petal = document.createElement("span");
-      petal.className = "splash-flower";
-
+      const star = document.createElement("span");
+      star.className = "splash-star";
+      star.textContent = Math.random() > 0.45 ? "✦" : "✧";
       const angle = Math.random() * Math.PI * 2;
-      const distance = 70 + Math.random() * Math.max(window.innerWidth, window.innerHeight) * 0.55;
+      const distance = 45 + Math.random() * Math.max(window.innerWidth, window.innerHeight) * 0.42;
       const sx = Math.cos(angle) * distance;
-      const sy = Math.sin(angle) * distance + 90;
-      const rot = Math.round((Math.random() - 0.5) * 720);
-      const size = 11 + Math.random() * 11;
-      const dur = 1.15 + Math.random() * 0.65;
-
-      petal.style.left = `${originX}px`;
-      petal.style.top = `${originY}px`;
-      petal.style.width = `${size}px`;
-      petal.style.height = `${size * 0.72}px`;
-      petal.style.background = FLOWER_COLORS[i % FLOWER_COLORS.length];
-      petal.style.setProperty("--sx", `${sx.toFixed(1)}px`);
-      petal.style.setProperty("--sy", `${sy.toFixed(1)}px`);
-      petal.style.setProperty("--srot", `${rot}deg`);
-      petal.style.setProperty("--dur", `${dur.toFixed(2)}s`);
-
-      bloomLayer.appendChild(petal);
-      setTimeout(() => petal.remove(), dur * 1000 + 100);
-    }
-
-    // Also add falling petals from the top canopy
-    for (let j = 0; j < 20; j++) {
-      setTimeout(spawnFallingPetal, j * 35);
+      const sy = Math.sin(angle) * distance;
+      const size = 9 + Math.random() * 19;
+      const dur = 1.0 + Math.random() * 0.8;
+      star.style.left = `${originX}px`;
+      star.style.top = `${originY}px`;
+      star.style.color = FLOWER_COLORS[i % FLOWER_COLORS.length];
+      star.style.fontSize = `${size}px`;
+      star.style.setProperty("--sx", `${sx.toFixed(1)}px`);
+      star.style.setProperty("--sy", `${sy.toFixed(1)}px`);
+      star.style.setProperty("--dur", `${dur.toFixed(2)}s`);
+      bloomLayer.appendChild(star);
+      setTimeout(() => star.remove(), dur * 1000 + 100);
     }
   }
 
   /* =========================================================
-     2. TEMPLE BELL -> TEMPLE DOORS -> GANAPATHI LANGUAGE SCREEN
+     2. STARLIGHT REVEAL -> LANGUAGE SELECTION
   ========================================================= */
   let doorOpened = false;
 
@@ -123,7 +81,7 @@
     }
     playTempleBellChime();
 
-    // 2. Splash flowers when opening the temple doors
+    // 2. Create a champagne-gold starburst
     const cx = e && e.clientX ? e.clientX : window.innerWidth / 2;
     const cy = e && e.clientY ? e.clientY : window.innerHeight * 0.35;
     triggerFlowerSplash(64, cx, cy);
@@ -183,7 +141,7 @@
       const selected = btn.getAttribute("data-select-lang");
       setLanguage(selected);
 
-      // Splash flowers again upon selecting English / Malayalam
+      // Create a delicate starburst on language selection
       const cx = e.clientX || window.innerWidth / 2;
       const cy = e.clientY || window.innerHeight / 2;
       triggerFlowerSplash(68, cx, cy);
@@ -399,27 +357,20 @@
      9. AMBIENT PETAL SHOWER & TOUCH BLOOMS
   ========================================================= */
   function spawnFallingPetal() {
-    if (!petalCanvas || petalCanvas.childElementCount > 26) return;
-    const petal = document.createElement("span");
-    petal.className = "falling-petal";
-
-    const size = 9 + Math.random() * 8;
+    if (!petalCanvas || petalCanvas.childElementCount > 24) return;
+    const star = document.createElement("span");
+    star.className = "falling-star";
+    star.textContent = Math.random() > 0.5 ? "✦" : "✧";
+    const size = 8 + Math.random() * 13;
     const startLeft = Math.random() * 100;
-    const duration = 6.5 + Math.random() * 5;
-    const driftX = (Math.random() - 0.5) * 140;
-    const spinDeg = (Math.random() > 0.5 ? 1 : -1) * (360 + Math.random() * 360);
-    const color = FLOWER_COLORS[Math.floor(Math.random() * FLOWER_COLORS.length)];
-
-    petal.style.width = `${size}px`;
-    petal.style.height = `${size * 0.75}px`;
-    petal.style.left = `${startLeft}%`;
-    petal.style.background = color;
-    petal.style.setProperty("--drift-x", `${driftX}px`);
-    petal.style.setProperty("--spin-deg", `${spinDeg}deg`);
-    petal.style.animationDuration = `${duration}s`;
-
-    petalCanvas.appendChild(petal);
-    setTimeout(() => petal.remove(), duration * 1000 + 200);
+    const duration = 7 + Math.random() * 6;
+    star.style.fontSize = `${size}px`;
+    star.style.left = `${startLeft}%`;
+    star.style.color = FLOWER_COLORS[Math.floor(Math.random() * FLOWER_COLORS.length)];
+    star.style.setProperty("--drift-x", `${(Math.random() - 0.5) * 90}px`);
+    star.style.animationDuration = `${duration}s`;
+    petalCanvas.appendChild(star);
+    setTimeout(() => star.remove(), duration * 1000 + 200);
   }
 
   let petalInterval = null;
