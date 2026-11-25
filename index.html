@@ -25,7 +25,7 @@
   <div id="petal-canvas" aria-hidden="true"></div>
   <div id="bloom-layer" aria-hidden="true"></div>
 
-  <!-- Subtle Transparent Kerala Mural & Banana Leaf Watermark Layer -->
+  <!-- Subtle ornamental floral watermark layer -->
   <div class="mural-backdrop-layer" aria-hidden="true">
     <svg class="mural-watermark mural-top-left" viewBox="0 0 320 320">
       <defs>
@@ -50,10 +50,10 @@
     </svg>
 
     <svg class="mural-watermark mural-bottom-right" viewBox="0 0 360 360">
-      <!-- Stylized Kerala Banana Leaf Frond Veins -->
-      <path d="M40 330 Q165 185 335 35" fill="none" stroke="#2D5A36" stroke-width="2.5" opacity="0.16" />
-      <path d="M90 278 Q125 215 108 155 M135 232 Q175 165 162 102 M185 182 Q228 118 220 58 M235 132 Q278 78 278 28" fill="none" stroke="#2D5A36" stroke-width="1.3" opacity="0.13" />
-      <path d="M90 278 Q155 268 215 292 M135 232 Q205 222 268 244 M185 182 Q255 172 315 190 M235 132 Q295 124 345 138" fill="none" stroke="#2D5A36" stroke-width="1.3" opacity="0.13" />
+      <!-- Fine champagne-gold botanical flourish -->
+      <path d="M40 330 Q165 185 335 35" fill="none" stroke="#C9A86A" stroke-width="2.5" opacity="0.16" />
+      <path d="M90 278 Q125 215 108 155 M135 232 Q175 165 162 102 M185 182 Q228 118 220 58 M235 132 Q278 78 278 28" fill="none" stroke="#C9A86A" stroke-width="1.3" opacity="0.13" />
+      <path d="M90 278 Q155 268 215 292 M135 232 Q205 222 268 244 M185 182 Q255 172 315 190 M235 132 Q295 124 345 138" fill="none" stroke="#C9A86A" stroke-width="1.3" opacity="0.13" />
     </svg>
   </div>
 
@@ -163,38 +163,27 @@
        STAGE 3: MAIN INVITATION CONTENT
   ========================================================== -->
   <main id="invitation-main" class="invitation-main hidden">
-    <!-- Traditional Kerala Kasavu & Temple Gold Top Border -->
+    <!-- Midnight-luxe champagne ornament -->
     <div class="kasavu-top-border" aria-hidden="true"></div>
 
-    <!-- HERO SECTION (COUPLE-4 AS MAIN PHOTO + NILAVILAKKU MOTIF) -->
+    <!-- HERO SECTION (COUPLE PORTRAIT + CANDLELIGHT MOTIF) -->
     <section class="hero-section section-reveal">
       <div class="container hero-grid">
         <div class="hero-text">
           <!-- Champagne-gold star ornament -->
           <button type="button" id="nilavilakku-btn" class="nilavilakku-emblem" title="Touch for a sparkle" aria-label="Champagne gold star ornament">
-            <svg viewBox="0 0 96 112" width="60" height="70">
+            <svg viewBox="0 0 120 112" width="76" height="70" role="img" aria-label="Elegant candlelight arrangement">
               <defs>
-                <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#FFF7C2" />
-                  <stop offset="50%" stop-color="#FFB703" />
-                  <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
-                </radialGradient>
-                <linearGradient id="brassBody" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#8C6218" />
-                  <stop offset="45%" stop-color="#F2D16B" />
-                  <stop offset="100%" stop-color="#7A5212" />
-                </linearGradient>
+                <linearGradient id="candleWax" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d8bd83"/><stop offset=".48" stop-color="#fff4d6"/><stop offset="1" stop-color="#b68b42"/></linearGradient>
+                <linearGradient id="candleHolder" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bd"/><stop offset=".5" stop-color="#c79a45"/><stop offset="1" stop-color="#76521e"/></linearGradient>
+                <radialGradient id="candleAura"><stop stop-color="#f8df9d" stop-opacity=".55"/><stop offset="1" stop-color="#f8df9d" stop-opacity="0"/></radialGradient>
               </defs>
-              <circle cx="48" cy="20" r="18" fill="url(#flameGlow)" class="lamp-halo" />
-              <path d="M48 6 C54 16, 55 23, 48 29 C41 23, 42 16, 48 6 Z" fill="#FFB703" class="lamp-flame" />
-              <path d="M48 12 C51 18, 51 22, 48 26 C45 22, 45 18, 48 12 Z" fill="#FFFBE0" />
-              <!-- Prabha Top & Oil Bowl (Thattu) -->
-              <path d="M26 34 Q48 42 70 34 L63 43 L33 43 Z" fill="url(#brassBody)" />
-              <rect x="44" y="43" width="8" height="44" rx="3" fill="url(#brassBody)" />
-              <ellipse cx="48" cy="58" rx="13" ry="3.5" fill="#B8860B" />
-              <ellipse cx="48" cy="72" rx="11" ry="3" fill="#B8860B" />
-              <!-- Pedestal Base -->
-              <path d="M26 88 L70 88 L77 98 L19 98 Z" fill="url(#brassBody)" />
+              <ellipse cx="60" cy="49" rx="53" ry="48" fill="url(#candleAura)"/>
+              <g fill="url(#candleWax)" stroke="#b68b42" stroke-width=".8">
+                <rect x="17" y="38" width="18" height="51" rx="3"/><rect x="51" y="20" width="19" height="69" rx="3"/><rect x="85" y="42" width="18" height="47" rx="3"/>
+              </g>
+              <g fill="#f7d98d"><path d="M26 25 C18 16 26 8 26 5 C34 15 33 20 26 25Z"/><path d="M60 9 C52 0 60 -6 60 -9 C69 1 68 5 60 9Z"/><path d="M94 29 C86 20 94 12 94 9 C102 19 101 24 94 29Z"/></g>
+              <g fill="url(#candleHolder)" stroke="#8c6728" stroke-width="1"><path d="M12 91h28l-4 7H16Z"/><path d="M45 91h31l-4 7H49Z"/><path d="M80 91h28l-4 7H84Z"/><path d="M7 100h38v4H7zM40 100h40v4H40zM75 100h38v4H75z"/></g>
             </svg>
           </button>
 
@@ -264,45 +253,28 @@
           <h2 class="section-title" data-i18n="message_title">A Celebration of Love &amp; Togetherness</h2>
         </div>
 
-        <!-- Scroll-Driven Unfolding Thaliyola (Palm Leaf Manuscript) -->
-        <div class="thaliyola-wrapper" id="thaliyola-wrapper">
-          <!-- Left Wooden Binding Roller & Sacred Thread -->
-          <div class="thaliyola-roller roller-left" aria-hidden="true">
-            <div class="roller-cap top"></div>
-            <div class="roller-cord"></div>
-            <div class="roller-cap bottom"></div>
-          </div>
-
-          <!-- Unfolding Palm Leaf Strip -->
+        <!-- Midnight velvet and champagne-gold invitation folio -->
+        <div class="thaliyola-wrapper invitation-folio" id="thaliyola-wrapper">
           <div class="thaliyola-leaf" id="thaliyola-leaf">
-            <div class="palm-grain-overlay" aria-hidden="true"></div>
-            <!-- Traditional Binding Holes (Churuna Holes) -->
-            <span class="binding-hole hole-left" aria-hidden="true"></span>
-            <span class="binding-hole hole-right" aria-hidden="true"></span>
-
+            <div class="folio-ornament folio-ornament-top" aria-hidden="true">✧ ❖ ✧</div>
             <div class="thaliyola-content">
-              <div class="thaliyola-header-emblem">॥ ശുഭമസ്തു ॥</div>
+              <div class="thaliyola-header-emblem">WITH JOY &amp; GRATITUDE</div>
               <p class="message-body" data-i18n="message_body_1">
                 With immense joy, we invite you and your family to join us in celebrating the wedding reception of Sreenath and Ashitha.
               </p>
               <p class="message-body" data-i18n="message_body_2">
                 Your gracious presence and blessings will make this celebration truly special.
               </p>
-
+              <div class="folio-divider" aria-hidden="true">✦</div>
               <div class="family-host-box">
                 <p class="host-label" data-i18n="hosted_by_label">With Love,</p>
                 <p class="host-names" data-i18n="hosted_by_names">Sri K. S. Sasi &amp; Smt. N. V. Rajani</p>
               </div>
             </div>
-          </div>
-
-          <!-- Right Wooden Binding Roller & Sacred Thread -->
-          <div class="thaliyola-roller roller-right" aria-hidden="true">
-            <div class="roller-cap top"></div>
-            <div class="roller-cord"></div>
-            <div class="roller-cap bottom"></div>
+            <div class="folio-ornament folio-ornament-bottom" aria-hidden="true">✧ ❖ ✧</div>
           </div>
         </div>
+
       </div>
     </section>
 
